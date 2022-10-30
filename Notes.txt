@@ -1,0 +1,17 @@
+This is meant to be a simple engine which combines:
+ - professional style game engine design
+ - GameMaker-like capabilities
+
+Desired features:
+ - Basic entity/component system
+ - Objects register for events (via delegates)
+
+Ideas for things to add
+ - Collision system
+  - You should register objects to join a channel, and to collide with a channel
+   - A channel is identified by name.
+   - If you collide with your own channel, you don't collide with yourself.
+ - Movement component
+  - Probably requires you to first add a position component
+   - Or maybe everything already has that.
+
