@@ -1,0 +1,33 @@
+
+Some ideas about transforms:
+
+public ITransformProvider
+{
+	virtual Transform GetTransform() const = 0;
+}
+
+ChainedTransform : public ITransformProvider
+{
+	virtual Transform GetTransform() const override
+	{
+		if (m_ParentTransform.IsValid())
+		{
+			return m_ParentTransform->GetTransform() * m_Transformable.GetTransform();
+		}
+	}
+
+	WeakRef<ITransformProvider> m_ParentTransform;
+	Transformable m_Transformable;
+}
+
+So SpriteComponent can be an ITransformProvider, returning the transform from its sprite.
+Meanwhile, a collider can have a ChainedTransform.
+So to get its position, it will start with the owning object position, and multiply by m_ChainedTransform.GetTransform()
+
+Collision computing might look like this:
+
+Vec2 BaseCollider::GetPosition(Vec2 ownerPosition)
+{
+	return TransformPoint(ownerPosition, m_ChainedTransform.GetTransform());
+}
+

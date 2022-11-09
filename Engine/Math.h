@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Engine/Core.h"
-
 #include <cmath>
 
 inline float LengthSquared(Vec2 v)

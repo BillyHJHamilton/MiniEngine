@@ -1,0 +1,39 @@
+
+Sprites:
+ - Animated sprites
+ - Depth
+ - Depth-sorted transparency rendering
+
+Collisions:
+ - Give collider an offset relative to the object
+ - Let collider's position offset be based on a sprite's transform (including rotation)
+
+Objects:
+ - Easy object spawning
+  - Could be from a factory method
+  - Or a constructor
+  - Or by duplicating a template object
+ - Easy object copying (duplication)
+
+Keyboard input:
+ - Process keyboard input in some reasonable way
+ - Allow objects or components to register events on key press
+
+Levels:
+ - More organized way to let objects register for events
+ - Views, level size
+ - Backgrounds - fixed or parallax
+ - Allow multiple rooms / levels / worlds in the game
+
+Components
+ - Improve the wrap-around component
+
+Game
+ - Could make a game class to organize asset loading, window creation, etc.
+  - Can derive from the game class to make a game for your main function.
+
+Some more long-term goals:
+ - Multithreading (task system)
+ - Serialize objects to/from files (XML or equivalent)
+ - Level editor
+ - More static type info - e.g., find any component derived from...

@@ -30,60 +30,69 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\NameHash.cpp">
+    <ClCompile Include="Engine\Core\NameHash.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\World.cpp">
+    <ClCompile Include="Engine\Gameplay\World.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="Engine\AssetManager.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Components\SpriteComponent.cpp">
+    <ClCompile Include="Engine\Gameplay\Components\SpriteComponent.cpp">
       <Filter>Source Files\Engine\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Component.cpp">
+    <ClCompile Include="Engine\Gameplay\Component.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Event.cpp">
+    <ClCompile Include="Engine\Core\Event.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Components\MoveComponent.cpp">
+    <ClCompile Include="Engine\Gameplay\Components\MoveComponent.cpp">
       <Filter>Source Files\Engine\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\GameObject.cpp">
+    <ClCompile Include="Engine\Gameplay\GameObject.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Components\CollisionComponent.cpp">
+    <ClCompile Include="Engine\Gameplay\Components\CollisionComponent.cpp">
       <Filter>Source Files\Engine\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\GameSystems\CollisionSystem.cpp">
+    <ClCompile Include="Engine\Gameplay\GameSystems\CollisionSystem.cpp">
       <Filter>Source Files\Engine\GameSystems</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\GameSystem.cpp">
+    <ClCompile Include="Engine\Gameplay\GameSystem.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Components\Collider.cpp">
+    <ClCompile Include="Engine\Gameplay\Components\Collider.cpp">
       <Filter>Source Files\Engine\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Core\Reference.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Core\TypeInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Gameplay\Components\WrapAroundComponent.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine\NameHash.h">
+    <ClInclude Include="Engine\Core\NameHash.h">
       <Filter>Source Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Core.h">
       <Filter>Source Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\GameObject.h">
+    <ClInclude Include="Engine\Gameplay\GameObject.h">
       <Filter>Source Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Component.h">
+    <ClInclude Include="Engine\Gameplay\Component.h">
       <Filter>Source Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\World.h">
+    <ClInclude Include="Engine\Gameplay\World.h">
       <Filter>Source Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Components\SpriteComponent.h">
+    <ClInclude Include="Engine\Gameplay\Components\SpriteComponent.h">
       <Filter>Source Files\Engine\Components</Filter>
     </ClInclude>
     <ClInclude Include="Engine\AssetManager.h">
@@ -92,31 +101,46 @@
     <ClInclude Include="TestObject.h">
       <Filter>Source Files\TestGame</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Event.h">
+    <ClInclude Include="Engine\Core\Event.h">
       <Filter>Source Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Components\MoveComponent.h">
+    <ClInclude Include="Engine\Gameplay\Components\MoveComponent.h">
       <Filter>Source Files\Engine\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\GameSystem.h">
+    <ClInclude Include="Engine\Gameplay\GameSystem.h">
       <Filter>Source Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\GameSystems\CollisionSystem.h">
+    <ClInclude Include="Engine\Gameplay\GameSystems\CollisionSystem.h">
       <Filter>Source Files\Engine\GameSystems</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Components\CollisionComponent.h">
+    <ClInclude Include="Engine\Gameplay\Components\CollisionComponent.h">
       <Filter>Source Files\Engine\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\ComponentReference.h">
-      <Filter>Source Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Math.h">
       <Filter>Source Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Components\Collider.h">
+    <ClInclude Include="Engine\Gameplay\Components\Collider.h">
       <Filter>Source Files\Engine\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Components\Collider_i.h">
+    <ClInclude Include="Engine\Gameplay\Components\Collider_i.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Core\Reference.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Gameplay\ComponentUtiltiy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Core\CoreHeader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Gameplay.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Gameplay\Components\WrapAroundComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Core\TypeInfo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

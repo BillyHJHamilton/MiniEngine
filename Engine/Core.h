@@ -1,26 +1,14 @@
 #pragma once
 
-#if _DEBUG
-	#define UNIT_TESTS true
-	#define DEBUG_NAME_HASHING true
-	#define DEBUG_MEMORY true
-#else
-	#define UNIT_TESTS true // For now, I'd like to test release, too.
-	#define DEBUG_NAME_HASHING false
-	#define DEBUG_MEMORY false
-#endif
-
-#include <assert.h>
-#include <iostream>
-#include <unordered_map>
-#include <memory>
-#include <string>
-#include <vector>
+// Includes platform #defines and essential standard library headers.
+#include "Core/CoreHeader.h"
 
 #include <SFML/System/Vector2.hpp>
 
-#include "NameHash.h"
-#include "Event.h"
+#include "Core/Event.h"
+#include "Core/NameHash.h"
+#include "Core/Reference.h"
+#include "Core/TypeInfo.h"
 
 class Component;
 class GameObject;
@@ -29,9 +17,11 @@ class World;
 
 namespace sf
 {
+	class RenderStates;
 	class RenderTarget;
 	class Sprite;
 	class Texture;
 }
 
 using Vec2 = sf::Vector2f;
+using IntVec2 = sf::Vector2i;

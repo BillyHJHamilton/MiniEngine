@@ -1,17 +1,29 @@
-This is meant to be a simple engine which combines:
- - professional style game engine design
+This is meant to be a simple engine which has:
+ - Professional style game engine design patterns (entity-component, delegates, etc)
  - GameMaker-like capabilities
 
-Desired features:
- - Basic entity/component system
- - Objects register for events (via delegates)
+-------------------------------------------------------------------------------
 
-Ideas for things to add
- - Collision system
-  - You should register objects to join a channel, and to collide with a channel
-   - A channel is identified by name.
-   - If you collide with your own channel, you don't collide with yourself.
- - Movement component
-  - Probably requires you to first add a position component
-   - Or maybe everything already has that.
+Planned organization
 
+Core - Fundamental types used to build the engine.
+ - NameHash - Compile-time hashing of strings to 64-bit integers.
+ - Reference - Reference counting and weak references to an object.
+ - Event - Types for callbacks and multicast delegates.
+
+Gameplay - Support for game objects in an ECS system.
+ - World - Manages the lifetime of GameObjects and GameSystems.
+ - GameObject - Owned by a World, contains Components.
+ - Component - Owned by a GameObject and adds functionality to its owner.
+ - GameSystem - A singleton at the World level.
+
+Components - Derived classes of Component, used to implement common functionality.
+ - CollisionComponent
+ - MoveComponent
+ - SpriteComponent
+ - etc.
+
+GameSystems - Derived classes of GameSystem, used to coordinate between components of multiple objects.
+ - CollisionSystem
+
+-------------------------------------------------------------------------------

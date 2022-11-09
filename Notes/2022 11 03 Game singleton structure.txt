@@ -1,0 +1,45 @@
+
+Structure
+
+GameProgram - Lifetime from the moment the game starts up until it shuts down
+ (Game; GameWindow; GameProgram; App; GameEngine; GameInstance; ...)
+ - Loading assets
+ - Initializing permanent global data (prefabs, etc)
+  - Though in a larger game some things cd be loaded on a per-level basis
+ - Manage system resources like input/output.
+
+GameSession - Lifetime from when you hit "new game" or "load game" until you return to main menu
+ - Wouldn't include the shell menu (Would you be in any session at that time?  Perhaps a temp one?)
+ - Persists between levels
+ - Singletons at this level for player's save data (score, lives, story progress, etc)
+ - (Technically, a "Session" is not quite the same as a "Playthrough", since you load and save to restore the same "Playthrough" in multiple "Sessions"... but from the app perspective, a Session is about playing a single player's game continuously)
+ - Could be that a session is optional to have (so you don't need one on the menu)
+  - Or it could be that a session is necessary to have, but you can kill it and load a new one at any time.
+
+GameProgram - a true singleton
+ - Program Systems - app level singletons
+  - Asset manager, for instance
+ - Current World
+  - Objects
+  - WorldSystems
+ - Current Session
+
+GameSettings
+ - We think of these as persisting between runtimes
+  - Settings could be at the app level
+  - Or they could be with the user's save file
+
+GameMaker doesn't have any sense of the GameSession.
+- Although it has the "restart game" command.
+- So in that sense, it does.
+- That does include the main menu - it reboots absolutely everything
+  (except that the assets are all still loaded, etc.)
+- It's pretty reasonable to just think of the "main menu" as its own world
+ - That's what Unity and Unreal both tend to do
+- Unreal also has "game modes" to help distinguish between singleplayer, multiplayer, etc.
+- I don't fully understand the difference between GameMode and GameState in UE4; guess it's multiplayer related.
+
+WorldSettings
+ - Things like the "Game Mode" could be set when you load into a (particular) world
+  - I.e., different worlds may have different rules / modes / systems.
+
