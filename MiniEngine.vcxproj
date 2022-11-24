@@ -153,6 +153,7 @@
     <ClCompile Include="Engine\Core\NameHash.cpp" />
     <ClCompile Include="Engine\Core\Reference.cpp" />
     <ClCompile Include="Engine\Gameplay\World.cpp" />
+    <ClCompile Include="Engine\InputEventManager.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -173,6 +174,7 @@
     <ClInclude Include="Engine\Gameplay\GameObject.h" />
     <ClInclude Include="Engine\Gameplay\GameSystem.h" />
     <ClInclude Include="Engine\Gameplay\GameSystems\CollisionSystem.h" />
+    <ClInclude Include="Engine\InputEventManager.h" />
     <ClInclude Include="Engine\Math.h" />
     <ClInclude Include="Engine\Core\NameHash.h" />
     <ClInclude Include="Engine\Core\Reference.h" />
