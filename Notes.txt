@@ -27,3 +27,4 @@ GameSystems - Derived classes of GameSystem, used to coordinate between componen
  - CollisionSystem
 
 -------------------------------------------------------------------------------
+Note to self: Using SFML 2.5.1
