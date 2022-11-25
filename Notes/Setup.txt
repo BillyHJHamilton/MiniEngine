@@ -1,0 +1,31 @@
+Setting up the project on Windows
+
+1. Start VS2022 - Clone the project from Github
+- The project includes the SFML-2.5.1 source
+
+With luck, everything will work automatically.
+
+If SFML is not working, try the following:
+
+2. Delete the contents of MiniEngine/External/SFML-2.5.1/builds
+
+3. Download CMake for Windows
+
+4. Run the CMake-Gui (included with CMake)
+Configure the settings as shown here: https://www.sfml-dev.org/tutorials/2.5/compile-with-cmake.php
+- You don't need to do anything with Visual Studio command line, just follow the GUI instructions
+- Set the build directory to MiniEngine/External/SFML-2.5.1/builds
+
+5. Open the SFML project that CMake generated and build it
+ - Build Solution on Debug
+ - Build Solution on Release
+It should build, but not run (since it's just a library and has no main function)
+
+6. Now hopefully MiniEngine will work.
+
+You could check the paths here:
+ - Under Debug:
+  -> Linker / General / Additional Library Directories
+  -> C/C++ / General / Additional Include Directories
+ - Under Release:
+  -> Same thing as for debug, but using the release directories

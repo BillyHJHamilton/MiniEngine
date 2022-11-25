@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\HackDay\MiniEngine\External\SFML-2.5.1\builds\CMakeFiles\42837189b2fda776f0b922ae41665573\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{EA286EC8-7329-3BB6-80D2-AE73AA1B31FF}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

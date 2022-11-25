@@ -9,6 +9,8 @@ public:
 	GameObject();
 	virtual ~GameObject();
 
+	virtual void Init() {};
+
 	WeakRef<GameObject> GetWeakRef() { return m_RefTracker.MakeReference(this); }
 	WeakRef<const GameObject> GetWeakRef() const { return m_RefTracker.MakeReference(const_cast<const GameObject*>(this)); }
 
@@ -19,6 +21,9 @@ public:
 	Component* FindComponentByType(NameHash typeName);
 	const Component* FindComponentByType(NameHash typeName) const;
 
+	template<typename ComponentType> ComponentType* AddComponent();
+	template<typename ComponentType, typename... ArgumentList> ComponentType* EmplaceComponent(ArgumentList... args);
+
 	template<typename ComponentType> ComponentType* FindComponent();
 	template<typename ComponentType> const ComponentType* FindComponent() const;
 
@@ -28,7 +33,7 @@ public:
 	template<typename ComponentType> WeakRef<ComponentType> FindComponentWeakRef();
 	template<typename ComponentType> WeakRef<const ComponentType> FindComponentWeakRef() const;
 
-template<typename ComponentType> WeakRef<ComponentType> MakeComponentWeakRef(ComponentType* component);
+	template<typename ComponentType> WeakRef<ComponentType> MakeComponentWeakRef(ComponentType* component);
 	template<typename ComponentType> WeakRef<const ComponentType> MakeComponentWeakRef(const ComponentType* component) const;
 
 	Vec2 GetPosition() const { return m_Position; }
@@ -44,6 +49,7 @@ template<typename ComponentType> WeakRef<ComponentType> MakeComponentWeakRef(Com
 	MulticastEvent<NameHash> EventTagRemoved;
 
 	void Destroy();
+	bool IsValid() const;
 	MulticastEvent<GameObject*> EventDestroy;
 
 	virtual void Tick(float deltaTime);
@@ -59,15 +65,21 @@ template<typename ComponentType> WeakRef<ComponentType> MakeComponentWeakRef(Com
 
 	bool m_DrawOrigin = false;
 
+protected:
+	virtual void OnDestroy() {}
+
+	Vec2 m_Position = { 0,0 };
+	std::vector<NameHash> m_TagList;
+
 private:
 	friend class World;
-	void SetWorld(World* NewWorld) { m_World = NewWorld; }
+	void SetWorld(World* NewWorld);
 
 	RefTracker m_RefTracker;
 	World* m_World = nullptr;
 	std::vector<std::unique_ptr<Component>> m_ComponentList;
-	Vec2 m_Position = {0,0};
-	std::vector<NameHash> m_TagList;
+
+	bool m_Destroyed = false;
 
 #if DEBUG_MEMORY
 	static int s_NumCreated;
@@ -75,7 +87,21 @@ private:
 #endif
 };
 
+bool IsValid(const GameObject* gameObject);
+
 // Template implementations
+
+template<typename ComponentType>
+ComponentType* GameObject::AddComponent()
+{
+	return static_cast<ComponentType*>(AddComponent(new ComponentType));
+}
+
+template<typename ComponentType, typename... ArgumentList>
+ComponentType* GameObject::EmplaceComponent(ArgumentList... args)
+{
+	return static_cast<ComponentType*>(AddComponent(new ComponentType(std::forward<ArgumentList>(args)...)));
+}
 
 template<typename ComponentType>
 ComponentType* GameObject::FindComponent()

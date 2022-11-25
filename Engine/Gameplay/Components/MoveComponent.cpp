@@ -38,6 +38,6 @@ void MoveComponent::ClearAcceleration()
 void MoveComponent::Tick(float deltaTime)
 {
 	assert(GetOwner() != nullptr);
-	AddVelocity(m_Acceleration);
+	AddVelocity(m_Acceleration * deltaTime);
 	GetOwner()->MovePosition(deltaTime * m_Velocity);
 }
