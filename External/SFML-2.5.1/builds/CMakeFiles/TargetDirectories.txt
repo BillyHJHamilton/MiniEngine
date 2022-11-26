@@ -1,0 +1,16 @@
+C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/CMakeFiles/INSTALL.dir
+C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/CMakeFiles/ALL_BUILD.dir
+C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/CMakeFiles/ZERO_CHECK.dir
+C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/src/SFML/CMakeFiles/INSTALL.dir
+C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/src/SFML/System/CMakeFiles/sfml-system.dir
+C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/src/SFML/System/CMakeFiles/INSTALL.dir
+C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/src/SFML/Main/CMakeFiles/sfml-main.dir
+C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/src/SFML/Main/CMakeFiles/INSTALL.dir
+C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/src/SFML/Window/CMakeFiles/sfml-window.dir
+C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/src/SFML/Window/CMakeFiles/INSTALL.dir
+C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/src/SFML/Network/CMakeFiles/sfml-network.dir
+C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/src/SFML/Network/CMakeFiles/INSTALL.dir
+C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir
+C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/src/SFML/Graphics/CMakeFiles/INSTALL.dir
+C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/src/SFML/Audio/CMakeFiles/sfml-audio.dir
+C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/src/SFML/Audio/CMakeFiles/INSTALL.dir

@@ -1,0 +1,7 @@
+# CMake generation dependency list for this directory.
+C:/HackDay/MiniEngine/External/SFML-2.5.1/cmake/Modules/FindFLAC.cmake
+C:/HackDay/MiniEngine/External/SFML-2.5.1/cmake/Modules/FindVorbis.cmake
+C:/HackDay/MiniEngine/External/SFML-2.5.1/src/SFML/Audio/CMakeLists.txt
+C:/HackDay/cmake-3.25.0-windows-x86_64/share/cmake-3.25/Modules/FindOpenAL.cmake
+C:/HackDay/cmake-3.25.0-windows-x86_64/share/cmake-3.25/Modules/FindPackageHandleStandardArgs.cmake
+C:/HackDay/cmake-3.25.0-windows-x86_64/share/cmake-3.25/Modules/FindPackageMessage.cmake

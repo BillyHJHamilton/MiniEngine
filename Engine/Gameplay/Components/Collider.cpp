@@ -52,7 +52,7 @@ ECollisionResult CircleCollider::ResolveCollision(const ICollider* other) const
 ECollisionResult CircleCollider::WithPoint(const PointCollider& other) const
 {
 	float const squaredCollisionDistance = m_Radius*m_Radius + ICollider::Epsilon;
-	return (DistanceSquared(m_Position, other.m_Position) <= squaredCollisionDistance)
+	return (Math::DistanceSquared(m_Position, other.m_Position) <= squaredCollisionDistance)
 		? ECollisionResult::Collision
 		: ECollisionResult::NoCollision;
 }
@@ -61,7 +61,7 @@ ECollisionResult CircleCollider::WithCircle(const CircleCollider& other) const
 {
 	float const collisionDistance = m_Radius + other.m_Radius;
 	float const squaredCollisionDistance = collisionDistance*collisionDistance + ICollider::Epsilon;
-	return (DistanceSquared(m_Position, other.m_Position) <= squaredCollisionDistance)
+	return (Math::DistanceSquared(m_Position, other.m_Position) <= squaredCollisionDistance)
 		? ECollisionResult::Collision
 		: ECollisionResult::NoCollision;
 }
@@ -106,7 +106,7 @@ ECollisionResult AlignedBoxCollider::WithCircle(const CircleCollider& other) con
 	};
 	float const collisionDistance = other.m_Radius + other.m_Radius;
 	float const squaredCollisionDistance = collisionDistance*collisionDistance + ICollider::Epsilon;
-	return DistanceSquared(nearestPoint, other.m_Position) <= squaredCollisionDistance
+	return Math::DistanceSquared(nearestPoint, other.m_Position) <= squaredCollisionDistance
 		? ECollisionResult::Collision
 		: ECollisionResult::NoCollision;
 }

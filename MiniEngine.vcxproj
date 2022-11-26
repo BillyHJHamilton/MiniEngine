@@ -107,15 +107,22 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>B:\Programming\Libraries\SFML-2.5.1\include;$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\External\SFML-2.5.1\include;$(ProjectDir)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>B:\Programming\Libraries\SFML-2.5.1\build1\lib\Debug\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)\External\SFML-2.5.1\builds\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(ProjectDir)External\SFML-2.5.1\builds\lib\Debug\sfml-audio-d-2.dll" "$(TargetDir)"
+copy /Y "$(ProjectDir)External\SFML-2.5.1\builds\lib\Debug\sfml-graphics-d-2.dll" "$(TargetDir)"
+copy /Y "$(ProjectDir)External\SFML-2.5.1\builds\lib\Debug\sfml-network-d-2.dll" "$(TargetDir)"
+copy /Y "$(ProjectDir)External\SFML-2.5.1\builds\lib\Debug\sfml-system-d-2.dll" "$(TargetDir)"
+copy /Y "$(ProjectDir)External\SFML-2.5.1\builds\lib\Debug\sfml-window-d-2.dll" "$(TargetDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -125,7 +132,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>B:\Programming\Libraries\SFML-2.5.1\include;$(ProjectDir)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)External\SFML-2.5.1\include;$(ProjectDir)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -133,12 +140,26 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>B:\Programming\Libraries\SFML-2.5.1\build1\lib\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)\External\SFML-2.5.1\builds\lib\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(ProjectDir)External\SFML-2.5.1\builds\lib\Release\sfml-audio-2.dll" "$(TargetDir)"
+copy /Y "$(ProjectDir)External\SFML-2.5.1\builds\lib\Release\sfml-graphics-2.dll" "$(TargetDir)"
+copy /Y "$(ProjectDir)External\SFML-2.5.1\builds\lib\Release\sfml-network-2.dll" "$(TargetDir)"
+copy /Y "$(ProjectDir)External\SFML-2.5.1\builds\lib\Release\sfml-system-2.dll" "$(TargetDir)"
+copy /Y "$(ProjectDir)External\SFML-2.5.1\builds\lib\Release\sfml-window-2.dll" "$(TargetDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Engine\AssetManager.cpp" />
+    <ClCompile Include="Asteroids\Asteroid.cpp" />
+    <ClCompile Include="Asteroids\AsteroidsApp.cpp" />
+    <ClCompile Include="Asteroids\AsteroidSizes.cpp" />
+    <ClCompile Include="Asteroids\Explosion.cpp" />
+    <ClCompile Include="Asteroids\Laser.cpp" />
+    <ClCompile Include="Asteroids\PlayerShip.cpp" />
+    <ClCompile Include="Engine\App\GameApp.cpp" />
+    <ClCompile Include="Engine\App\AssetManager.cpp" />
     <ClCompile Include="Engine\Core\TypeInfo.cpp" />
     <ClCompile Include="Engine\Gameplay\Component.cpp" />
     <ClCompile Include="Engine\Gameplay\Components\Collider.cpp" />
@@ -153,12 +174,18 @@
     <ClCompile Include="Engine\Core\NameHash.cpp" />
     <ClCompile Include="Engine\Core\Reference.cpp" />
     <ClCompile Include="Engine\Gameplay\World.cpp" />
-    <ClCompile Include="Engine\InputEventManager.cpp" />
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Engine\App\InputEventManager.cpp" />
+    <ClCompile Include="Asteroids\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine\AssetManager.h" />
+    <ClInclude Include="Asteroids\Asteroid.h" />
+    <ClInclude Include="Asteroids\AsteroidsApp.h" />
+    <ClInclude Include="Asteroids\Explosion.h" />
+    <ClInclude Include="Asteroids\AsteroidSizes.h" />
+    <ClInclude Include="Asteroids\Laser.h" />
+    <ClInclude Include="Engine\App\AssetManager.h" />
     <ClInclude Include="Engine\Core\TypeInfo.h" />
+    <ClInclude Include="Engine\App\GameApp.h" />
     <ClInclude Include="Engine\Gameplay.h" />
     <ClInclude Include="Engine\Gameplay\Component.h" />
     <ClInclude Include="Engine\Gameplay\Components\Collider.h" />
@@ -167,19 +194,19 @@
     <ClInclude Include="Engine\Gameplay\Components\MoveComponent.h" />
     <ClInclude Include="Engine\Gameplay\Components\SpriteComponent.h" />
     <ClInclude Include="Engine\Gameplay\Components\WrapAroundComponent.h" />
-    <ClInclude Include="Engine\Gameplay\ComponentUtiltiy.h" />
+    <ClInclude Include="Engine\Gameplay\GameplayUtiltiy.h" />
     <ClInclude Include="Engine\Core.h" />
     <ClInclude Include="Engine\Core\CoreHeader.h" />
     <ClInclude Include="Engine\Core\Event.h" />
     <ClInclude Include="Engine\Gameplay\GameObject.h" />
     <ClInclude Include="Engine\Gameplay\GameSystem.h" />
     <ClInclude Include="Engine\Gameplay\GameSystems\CollisionSystem.h" />
-    <ClInclude Include="Engine\InputEventManager.h" />
+    <ClInclude Include="Engine\App\InputEventManager.h" />
     <ClInclude Include="Engine\Math.h" />
     <ClInclude Include="Engine\Core\NameHash.h" />
     <ClInclude Include="Engine\Core\Reference.h" />
     <ClInclude Include="Engine\Gameplay\World.h" />
-    <ClInclude Include="TestObject.h" />
+    <ClInclude Include="Asteroids\PlayerShip.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

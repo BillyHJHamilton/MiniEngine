@@ -117,8 +117,18 @@ bool GameObject::HasTag(NameHash tagToCheck) const
 
 void GameObject::Destroy()
 {
-	assert(m_World != nullptr);
-	m_World->DestroyObject(this);
+	if (!m_Destroyed)
+	{
+		// Mark the object as destroyed.  It will be cleaned up at the end of the tick.
+		assert(m_World != nullptr);
+		m_Destroyed = true;
+		OnDestroy();
+	}
+}
+
+bool GameObject::IsValid() const
+{
+	return !m_Destroyed;
 }
 
 void GameObject::Tick(float deltaTime)
@@ -151,6 +161,17 @@ void GameObject::Draw(sf::RenderTarget& renderTarget) const
 		debugRectangle.setSize({2.0f,2.0f});
 		renderTarget.draw(debugRectangle);
 	}
+}
+
+void GameObject::SetWorld(World* NewWorld)
+{
+	assert(m_World == nullptr);
+	m_World = NewWorld;
+}
+
+bool IsValid(const GameObject* gameObject)
+{
+	return gameObject != nullptr && gameObject->IsValid();
 }
 
 #if UNIT_TESTS

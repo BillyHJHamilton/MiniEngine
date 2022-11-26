@@ -2,10 +2,16 @@
 
 void World::Tick(float deltaTime)
 {
-	for (std::unique_ptr<GameObject>& NextObject : m_ObjectList)
+	// Iterate by index because new objects could be added during the tick.
+	for (int i = 0; i < m_ObjectList.size(); ++i)
 	{
-		NextObject->Tick(deltaTime);
+		if (IsValid(m_ObjectList[i].get()))
+		{
+			m_ObjectList[i]->Tick(deltaTime);
+		}
 	}
+
+	CleanUpDeadObjects();
 }
 
 void World::Draw(sf::RenderTarget& renderTarget) const
@@ -21,26 +27,19 @@ GameObject* World::AddObject(GameObject* newObject)
 	assert(newObject != nullptr);
 	m_ObjectList.emplace_back(newObject);
 	newObject->SetWorld(this);
+	newObject->Init();
 	return newObject;
 }
 
-void World::DestroyObject(GameObject* objectToDestroy)
+void World::CleanUpDeadObjects()
 {
-	auto itr = std::find_if(m_ObjectList.begin(), m_ObjectList.end(),
-		[objectToDestroy](std::unique_ptr<GameObject>& NextObject)
-		{
-			return NextObject.get() == objectToDestroy;
-		}
-	);
-	
-	// If the object was found, swap it to the back of the list, then pop it off.
-	if (itr != m_ObjectList.end())
+	for (int i = 0; i < m_ObjectList.size(); ++i)
 	{
-		auto backItr = m_ObjectList.end() - 1;
-		if (itr != backItr)
+		if (!m_ObjectList[i]->IsValid())
 		{
-			std::iter_swap(itr, backItr);
+			std::swap(m_ObjectList[i], m_ObjectList.back());
+			m_ObjectList.pop_back();
+			--i;
 		}
-		m_ObjectList.pop_back();
 	}
 }

@@ -16,138 +16,186 @@
     <Filter Include="Source Files\Engine">
       <UniqueIdentifier>{b71edc51-c372-4903-89fd-f70840fdcbb2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine\Components">
-      <UniqueIdentifier>{0684d8dc-96e6-4140-8d4b-ec90c0ad6907}</UniqueIdentifier>
+    <Filter Include="Source Files\Engine\Gameplay">
+      <UniqueIdentifier>{410fa08a-276a-4bc5-8de2-adf30858ed82}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\TestGame">
-      <UniqueIdentifier>{90535dd3-67ee-492c-b610-50c736556cd9}</UniqueIdentifier>
+    <Filter Include="Source Files\Engine\Core">
+      <UniqueIdentifier>{bf825019-9218-426f-9940-f618822a85da}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine\GameSystems">
+    <Filter Include="Source Files\Engine\App">
+      <UniqueIdentifier>{06e8a32f-292b-4005-87fd-15217780901a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Gameplay\GameSystems">
       <UniqueIdentifier>{7c27a600-b6fc-4544-9b24-767bf622cc7a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine\Gameplay\Components">
+      <UniqueIdentifier>{0684d8dc-96e6-4140-8d4b-ec90c0ad6907}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Asteroids">
+      <UniqueIdentifier>{90535dd3-67ee-492c-b610-50c736556cd9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Core\NameHash.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Gameplay\World.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\AssetManager.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\Gameplay\Components\SpriteComponent.cpp">
-      <Filter>Source Files\Engine\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Gameplay\Component.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Core\Event.cpp">
-      <Filter>Source Files\Engine</Filter>
+      <Filter>Source Files\Engine\Gameplay\Components</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Gameplay\Components\MoveComponent.cpp">
-      <Filter>Source Files\Engine\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Gameplay\GameObject.cpp">
-      <Filter>Source Files\Engine</Filter>
+      <Filter>Source Files\Engine\Gameplay\Components</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Gameplay\Components\CollisionComponent.cpp">
-      <Filter>Source Files\Engine\Components</Filter>
+      <Filter>Source Files\Engine\Gameplay\Components</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Gameplay\GameSystems\CollisionSystem.cpp">
-      <Filter>Source Files\Engine\GameSystems</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Gameplay\GameSystem.cpp">
-      <Filter>Source Files\Engine</Filter>
+      <Filter>Source Files\Engine\Gameplay\GameSystems</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Gameplay\Components\Collider.cpp">
-      <Filter>Source Files\Engine\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Core\Reference.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Core\TypeInfo.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Engine\Gameplay\Components</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Gameplay\Components\WrapAroundComponent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Engine\Gameplay\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\InputEventManager.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Engine\Gameplay\Component.cpp">
+      <Filter>Source Files\Engine\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Core\Event.cpp">
+      <Filter>Source Files\Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Gameplay\GameObject.cpp">
+      <Filter>Source Files\Engine\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Gameplay\GameSystem.cpp">
+      <Filter>Source Files\Engine\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Core\NameHash.cpp">
+      <Filter>Source Files\Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Gameplay\World.cpp">
+      <Filter>Source Files\Engine\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\App\GameApp.cpp">
+      <Filter>Source Files\Engine\App</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\App\AssetManager.cpp">
+      <Filter>Source Files\Engine\App</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\App\InputEventManager.cpp">
+      <Filter>Source Files\Engine\App</Filter>
+    </ClCompile>
+    <ClCompile Include="Asteroids\AsteroidsApp.cpp">
+      <Filter>Source Files\Asteroids</Filter>
+    </ClCompile>
+    <ClCompile Include="Asteroids\Main.cpp">
+      <Filter>Source Files\Asteroids</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Core\Reference.cpp">
+      <Filter>Source Files\Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Core\TypeInfo.cpp">
+      <Filter>Source Files\Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Asteroids\PlayerShip.cpp">
+      <Filter>Source Files\Asteroids</Filter>
+    </ClCompile>
+    <ClCompile Include="Asteroids\Asteroid.cpp">
+      <Filter>Source Files\Asteroids</Filter>
+    </ClCompile>
+    <ClCompile Include="Asteroids\Explosion.cpp">
+      <Filter>Source Files\Asteroids</Filter>
+    </ClCompile>
+    <ClCompile Include="Asteroids\Laser.cpp">
+      <Filter>Source Files\Asteroids</Filter>
+    </ClCompile>
+    <ClCompile Include="Asteroids\AsteroidSizes.cpp">
+      <Filter>Source Files\Asteroids</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine\Core\NameHash.h">
-      <Filter>Source Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Core.h">
-      <Filter>Source Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Gameplay\GameObject.h">
-      <Filter>Source Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Gameplay\Component.h">
-      <Filter>Source Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Gameplay\World.h">
-      <Filter>Source Files\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Gameplay\Components\SpriteComponent.h">
-      <Filter>Source Files\Engine\Components</Filter>
+      <Filter>Source Files\Engine\Gameplay\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\AssetManager.h">
-      <Filter>Source Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="TestObject.h">
-      <Filter>Source Files\TestGame</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Core\Event.h">
-      <Filter>Source Files\Engine</Filter>
+    <ClInclude Include="Asteroids\PlayerShip.h">
+      <Filter>Source Files\Asteroids</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Gameplay\Components\MoveComponent.h">
-      <Filter>Source Files\Engine\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Gameplay\GameSystem.h">
-      <Filter>Source Files\Engine</Filter>
+      <Filter>Source Files\Engine\Gameplay\Components</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Gameplay\GameSystems\CollisionSystem.h">
-      <Filter>Source Files\Engine\GameSystems</Filter>
+      <Filter>Source Files\Engine\Gameplay\GameSystems</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Gameplay\Components\CollisionComponent.h">
-      <Filter>Source Files\Engine\Components</Filter>
+      <Filter>Source Files\Engine\Gameplay\Components</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Math.h">
       <Filter>Source Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Gameplay\Components\Collider.h">
-      <Filter>Source Files\Engine\Components</Filter>
+      <Filter>Source Files\Engine\Gameplay\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Gameplay\Components\Collider_i.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Core\Reference.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Gameplay\ComponentUtiltiy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Core\CoreHeader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Gameplay.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Engine\Core.h">
+      <Filter>Source Files\Engine\Core</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Gameplay\Components\WrapAroundComponent.h">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\Engine\Gameplay\Components</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Core\TypeInfo.h">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files\Engine\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\InputEventManager.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Engine\Core\CoreHeader.h">
+      <Filter>Source Files\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Gameplay.h">
+      <Filter>Source Files\Engine\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Gameplay\GameplayUtiltiy.h">
+      <Filter>Source Files\Engine\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Core\Reference.h">
+      <Filter>Source Files\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Gameplay\Components\Collider_i.h">
+      <Filter>Source Files\Engine\Gameplay\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Gameplay\Component.h">
+      <Filter>Source Files\Engine\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Core\Event.h">
+      <Filter>Source Files\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Gameplay\GameObject.h">
+      <Filter>Source Files\Engine\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Gameplay\GameSystem.h">
+      <Filter>Source Files\Engine\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Core\NameHash.h">
+      <Filter>Source Files\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Gameplay\World.h">
+      <Filter>Source Files\Engine\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\App\GameApp.h">
+      <Filter>Source Files\Engine\App</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\App\InputEventManager.h">
+      <Filter>Source Files\Engine\App</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\App\AssetManager.h">
+      <Filter>Source Files\Engine\App</Filter>
+    </ClInclude>
+    <ClInclude Include="Asteroids\AsteroidsApp.h">
+      <Filter>Source Files\Asteroids</Filter>
+    </ClInclude>
+    <ClInclude Include="Asteroids\Asteroid.h">
+      <Filter>Source Files\Asteroids</Filter>
+    </ClInclude>
+    <ClInclude Include="Asteroids\Explosion.h">
+      <Filter>Source Files\Asteroids</Filter>
+    </ClInclude>
+    <ClInclude Include="Asteroids\Laser.h">
+      <Filter>Source Files\Asteroids</Filter>
+    </ClInclude>
+    <ClInclude Include="Asteroids\AsteroidSizes.h">
+      <Filter>Source Files\Asteroids</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

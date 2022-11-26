@@ -8,19 +8,35 @@ class World
 {
 public:
 	GameObject* AddObject(GameObject* newObject);
-	void DestroyObject(GameObject* objectToDestroy);
-	
+
+	template<typename ObjectType> ObjectType* AddObject();
+	template<typename ObjectType, typename... ArgumentList> ObjectType* EmplaceObject(ArgumentList... args);
+
 	template<typename SystemType> SystemType* GetSystem();
 
 	void Tick(float deltaTime);
 	void Draw(sf::RenderTarget& renderTarget) const;
 
 private:
+	void CleanUpDeadObjects();
+
 	std::vector<std::unique_ptr<GameObject>> m_ObjectList;
 	std::unordered_map<NameHash, std::unique_ptr<GameSystem>> m_SystemMap;
 };
 
 // Template implementations
+
+template<typename ObjectType>
+ObjectType* World::AddObject()
+{
+	return static_cast<ObjectType*>(AddObject(new ObjectType));
+}
+
+template<typename ObjectType, typename... ArgumentList>
+ObjectType* World::EmplaceObject(ArgumentList... args)
+{
+	return static_cast<ObjectType*>(AddObject(new ObjectType(std::forward<ArgumentList>(args)...)));
+}
 
 template<typename SystemType>
 SystemType* World::GetSystem()

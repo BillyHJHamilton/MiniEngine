@@ -1,6 +1,6 @@
 #include "CollisionSystem.h"
 
-#include "Engine/Gameplay/ComponentUtiltiy.h"
+#include "Engine/Gameplay/GameplayUtiltiy.h"
 
 void CollisionSystem::AddToLayer(NameHash layerName, CollisionComponent* collisionComponent)
 {
@@ -56,17 +56,26 @@ void CollisionSystem::RemoveInvalidComponents()
 void CollisionSystem::CheckAgainstLayer(CollisionComponent* collisionComponent, NameHash layerName,
 	CallbackEvent<void,GameObject*,CollisionComponent*>& eventCollisionHandler)
 {
+	// Cache collisions, to avoid problem with objects being added during iteration.
+	// TODO maybe instead defer object spawning
+	std::vector<CollisionComponent*> hitComponents;
+
 	LayerType& layer = m_LayerMap[layerName];
 	for (WeakRef<CollisionComponent>& otherComponent : layer)
 	{
-		if (!otherComponent.IsValid() || otherComponent->GetOwner() == collisionComponent->GetOwner())
+		if (!IsValid(otherComponent) || otherComponent->GetOwner() == collisionComponent->GetOwner())
 		{
 			continue;
 		}
 
 		if (collisionComponent->CollidesWith(*otherComponent))
 		{
-			eventCollisionHandler.Execute(otherComponent->GetOwner(), otherComponent.Get());
+			hitComponents.push_back(otherComponent.Get());
 		}	
+	}
+
+	for (CollisionComponent* otherComponent : hitComponents)
+	{
+		eventCollisionHandler.Execute(otherComponent->GetOwner(), otherComponent);
 	}
 }
