@@ -166,8 +166,10 @@ copy /Y "$(ProjectDir)External\SFML-2.5.1\builds\lib\Release\sfml-window-2.dll" 
     <ClCompile Include="Engine\Gameplay\Components\CollisionComponent.cpp" />
     <ClCompile Include="Engine\Gameplay\Components\MoveComponent.cpp" />
     <ClCompile Include="Engine\Gameplay\Components\OutsideComponent.cpp" />
+    <ClCompile Include="Asteroids\Scoreboard.cpp" />
     <ClCompile Include="Engine\Gameplay\Components\SpriteComponent.cpp" />
     <ClCompile Include="Engine\Core\Event.cpp" />
+    <ClCompile Include="Engine\Gameplay\Components\TextComponent.cpp" />
     <ClCompile Include="Engine\Gameplay\GameObject.cpp" />
     <ClCompile Include="Engine\Gameplay\GameSystem.cpp" />
     <ClCompile Include="Engine\Gameplay\GameSystems\CollisionSystem.cpp" />
@@ -194,7 +196,9 @@ copy /Y "$(ProjectDir)External\SFML-2.5.1\builds\lib\Release\sfml-window-2.dll" 
     <ClInclude Include="Engine\Gameplay\Components\CollisionComponent.h" />
     <ClInclude Include="Engine\Gameplay\Components\MoveComponent.h" />
     <ClInclude Include="Engine\Gameplay\Components\OutsideComponent.h" />
+    <ClInclude Include="Asteroids\Scoreboard.h" />
     <ClInclude Include="Engine\Gameplay\Components\SpriteComponent.h" />
+    <ClInclude Include="Engine\Gameplay\Components\TextComponent.h" />
     <ClInclude Include="Engine\Gameplay\GameplayUtiltiy.h" />
     <ClInclude Include="Engine\Core.h" />
     <ClInclude Include="Engine\Core\CoreHeader.h" />

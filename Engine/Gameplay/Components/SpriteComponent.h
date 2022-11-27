@@ -8,8 +8,8 @@
 class SpriteComponent : public Component
 {
 public:
-	SpriteComponent(NameHash TextureName);
-	MACRO_DeclareTypeInfo(MoveComponent)
+	SpriteComponent(NameHash textureName);
+	MACRO_DeclareTypeInfo(SpriteComponent)
 
 	void SetVisible(bool visibility) { m_Visible = visibility; };
 

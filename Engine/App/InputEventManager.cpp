@@ -12,10 +12,18 @@ MulticastEvent<sf::Event::KeyEvent const&>& InputEventManager::GetKeyReleasedEve
 
 void InputEventManager::HandleKeyPressed(sf::Event::KeyEvent const& keyEvent)
 {
-	m_KeyPressedEventList[keyEvent.code].Broadcast(keyEvent);
+	if (keyEvent.code > sf::Keyboard::Key::Unknown &&
+		keyEvent.code < sf::Keyboard::Key::KeyCount)
+	{
+		m_KeyPressedEventList[keyEvent.code].Broadcast(keyEvent);
+	}
 }
 
 void InputEventManager::HandleKeyReleased(sf::Event::KeyEvent const& keyEvent)
 {
-	m_KeyReleasedEventList[keyEvent.code].Broadcast(keyEvent);
+	if (keyEvent.code > sf::Keyboard::Key::Unknown &&
+		keyEvent.code < sf::Keyboard::Key::KeyCount)
+	{
+		m_KeyReleasedEventList[keyEvent.code].Broadcast(keyEvent);
+	}
 }

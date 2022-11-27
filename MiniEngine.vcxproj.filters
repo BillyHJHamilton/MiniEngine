@@ -111,6 +111,12 @@
     <ClCompile Include="Engine\Gameplay\Components\OutsideComponent.cpp">
       <Filter>Source Files\Engine\Gameplay\Components</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Gameplay\Components\TextComponent.cpp">
+      <Filter>Source Files\Engine\Gameplay\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Asteroids\Scoreboard.cpp">
+      <Filter>Source Files\Asteroids</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Gameplay\Components\SpriteComponent.h">
@@ -202,6 +208,12 @@
     </ClInclude>
     <ClInclude Include="Engine\Gameplay\Components\OutsideComponent.h">
       <Filter>Source Files\Engine\Gameplay\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Gameplay\Components\TextComponent.h">
+      <Filter>Source Files\Engine\Gameplay\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Asteroids\Scoreboard.h">
+      <Filter>Source Files\Asteroids</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

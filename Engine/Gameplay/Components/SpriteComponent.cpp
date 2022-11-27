@@ -6,12 +6,12 @@
 
 TypeInfo const SpriteComponent::s_TypeInfo = TypeInfo("SpriteComponent", {"Component"});
 
-SpriteComponent::SpriteComponent(NameHash TextureName)
+SpriteComponent::SpriteComponent(NameHash textureName)
 {
-	const sf::Texture* SpriteTexture = GameApp::GetAssetManager().FindTexture(TextureName);
-	if (SpriteTexture != nullptr)
+	const sf::Texture* spriteTexture = GameApp::GetAssetManager().FindTexture(textureName);
+	if (spriteTexture != nullptr)
 	{
-		m_Sprite.setTexture(*SpriteTexture);
+		m_Sprite.setTexture(*spriteTexture);
 	}
 }
 

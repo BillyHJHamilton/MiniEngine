@@ -1,7 +1,48 @@
 #include "AssetManager.h"
-#include "SFML\Graphics\Texture.hpp"
+#include "SFML/Graphics/Texture.hpp"
+#include "SFML/Graphics/Font.hpp"
 
-//AssetManager g_AssetManager;
+void AssetManager::LoadFont(NameHash fontName, std::string filename)
+{
+	if (m_FontMap.find(fontName) != m_FontMap.end())
+	{
+		#if DEBUG_NAME_HASHING
+			std::cerr << "Error: Can't load font to " << fontName.GetNameString()
+				<< " because that name is already in use." << std::endl;
+		#endif
+
+		return;
+	}
+
+	auto emplaceResult = m_FontMap.emplace(fontName, sf::Font());
+	if (!emplaceResult.second)
+	{
+		std::cerr << "Error: Failed to create font resource." << std::endl;
+		return;
+	}
+
+	sf::Font& newFont = emplaceResult.first->second;
+
+	bool const bLoaded = newFont.loadFromFile(filename);
+	if (!bLoaded)
+	{
+		m_FontMap.erase(fontName);
+		return;
+	}
+}
+
+const sf::Font* AssetManager::FindFont(NameHash fontName)
+{
+	auto Itr = m_FontMap.find(fontName);
+	if (Itr == m_FontMap.end())
+	{
+		return nullptr;
+	}
+	else
+	{
+		return &Itr->second;
+	}
+}
 
 void AssetManager::LoadTexture(NameHash textureName, std::string filename,
 	TextureLoadOptions options)
