@@ -158,6 +158,7 @@ copy /Y "$(ProjectDir)External\SFML-2.5.1\builds\lib\Release\sfml-window-2.dll" 
     <ClCompile Include="Asteroids\Explosion.cpp" />
     <ClCompile Include="Asteroids\Laser.cpp" />
     <ClCompile Include="Asteroids\PlayerShip.cpp" />
+    <ClCompile Include="Asteroids\ScoreSystem.cpp" />
     <ClCompile Include="Engine\App\GameApp.cpp" />
     <ClCompile Include="Engine\App\AssetManager.cpp" />
     <ClCompile Include="Engine\Core\TypeInfo.cpp" />
@@ -186,6 +187,7 @@ copy /Y "$(ProjectDir)External\SFML-2.5.1\builds\lib\Release\sfml-window-2.dll" 
     <ClInclude Include="Asteroids\Explosion.h" />
     <ClInclude Include="Asteroids\AsteroidSizes.h" />
     <ClInclude Include="Asteroids\Laser.h" />
+    <ClInclude Include="Asteroids\ScoreSystem.h" />
     <ClInclude Include="Engine\App\AssetManager.h" />
     <ClInclude Include="Engine\Core\TypeInfo.h" />
     <ClInclude Include="Engine\App\GameApp.h" />

@@ -117,6 +117,9 @@
     <ClCompile Include="Asteroids\Scoreboard.cpp">
       <Filter>Source Files\Asteroids</Filter>
     </ClCompile>
+    <ClCompile Include="Asteroids\ScoreSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Gameplay\Components\SpriteComponent.h">
@@ -214,6 +217,9 @@
     </ClInclude>
     <ClInclude Include="Asteroids\Scoreboard.h">
       <Filter>Source Files\Asteroids</Filter>
+    </ClInclude>
+    <ClInclude Include="Asteroids\ScoreSystem.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,9 +1,11 @@
 #include "Asteroid.h"
 
+#include "Asteroids/ScoreSystem.h"
 #include "Engine/Gameplay/Components/CollisionComponent.h"
 #include "Engine/Gameplay/Components/MoveComponent.h"
 #include "Engine/Gameplay/Components/OutsideComponent.h"
 #include "Engine/Gameplay/Components/SpriteComponent.h"
+#include "Engine/Gameplay/World.h"
 #include "Engine/Math.h"
 #include "Engine/Random.h"
 
@@ -41,5 +43,14 @@ void Asteroid::Init()
 	{
 		m_OutsideComponent->SetResponse(OutsideComponent::Response::Wrap);
 		m_OutsideComponent->SetReferenceSprite(m_SpriteComponent);
+	}
+}
+
+void Asteroid::OnDestroy()
+{
+	ScoreSystem* scoreSystem = GetWorld()->GetSystem<ScoreSystem>();
+	if (scoreSystem)
+	{
+		scoreSystem->AddScore(100);
 	}
 }

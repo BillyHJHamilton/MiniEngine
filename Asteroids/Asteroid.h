@@ -11,6 +11,7 @@ class Asteroid : public GameObject
 {
 public:
 	virtual void Init() override;
+	virtual void OnDestroy() override;
 
 protected:
 	CollisionComponent* m_CollisionComponent = nullptr;

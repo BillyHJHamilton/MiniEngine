@@ -3,6 +3,7 @@
 
 void LargeAsteroid::OnDestroy()
 {
+	Asteroid::OnDestroy();
 	SpawnObjectAtObject<MediumAsteroid>(*this);
 	SpawnObjectAtObject<MediumAsteroid>(*this);
 }
@@ -15,6 +16,7 @@ void MediumAsteroid::Init()
 
 void MediumAsteroid::OnDestroy()
 {
+	Asteroid::OnDestroy();
 	SpawnObjectAtObject<SmallAsteroid>(*this);
 	SpawnObjectAtObject<SmallAsteroid>(*this);
 }
