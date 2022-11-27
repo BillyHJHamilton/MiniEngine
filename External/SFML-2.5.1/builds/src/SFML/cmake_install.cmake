@@ -1,4 +1,4 @@
-# Install script for directory: C:/HackDay/MiniEngine/External/SFML-2.5.1/src/SFML
+# Install script for directory: B:/Programming/cpp/MiniEngine/External/SFML-2.5.1/src/SFML
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,12 +34,12 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/src/SFML/System/cmake_install.cmake")
-  include("C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/src/SFML/Main/cmake_install.cmake")
-  include("C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/src/SFML/Window/cmake_install.cmake")
-  include("C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/src/SFML/Network/cmake_install.cmake")
-  include("C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/src/SFML/Graphics/cmake_install.cmake")
-  include("C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/src/SFML/Audio/cmake_install.cmake")
+  include("B:/Programming/cpp/MiniEngine/External/SFML-2.5.1/builds/src/SFML/System/cmake_install.cmake")
+  include("B:/Programming/cpp/MiniEngine/External/SFML-2.5.1/builds/src/SFML/Main/cmake_install.cmake")
+  include("B:/Programming/cpp/MiniEngine/External/SFML-2.5.1/builds/src/SFML/Window/cmake_install.cmake")
+  include("B:/Programming/cpp/MiniEngine/External/SFML-2.5.1/builds/src/SFML/Network/cmake_install.cmake")
+  include("B:/Programming/cpp/MiniEngine/External/SFML-2.5.1/builds/src/SFML/Graphics/cmake_install.cmake")
+  include("B:/Programming/cpp/MiniEngine/External/SFML-2.5.1/builds/src/SFML/Audio/cmake_install.cmake")
 
 endif()
 

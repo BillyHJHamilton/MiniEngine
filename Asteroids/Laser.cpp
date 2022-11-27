@@ -2,6 +2,7 @@
 
 #include "Engine/Gameplay/Components/CollisionComponent.h"
 #include "Engine/Gameplay/Components/MoveComponent.h"
+#include "Engine/Gameplay/Components/OutsideComponent.h"
 #include "Engine/Gameplay/Components/SpriteComponent.h"
 #include "Engine/Math.h"
 #include "Explosion.h"
@@ -21,6 +22,13 @@ void Laser::Init()
 	if (m_SpriteComponent)
 	{
 		m_SpriteComponent->m_Sprite.setOrigin(2, 2);
+	}
+
+	m_OutsideComponent = AddComponent<OutsideComponent>();
+	if (m_OutsideComponent)
+	{
+		m_OutsideComponent->SetResponse(OutsideComponent::Response::Destroy);
+		m_OutsideComponent->SetReferenceSprite(m_SpriteComponent);
 	}
 }
 

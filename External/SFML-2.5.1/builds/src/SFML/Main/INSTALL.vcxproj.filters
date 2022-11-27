@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\HackDay\MiniEngine\External\SFML-2.5.1\builds\CMakeFiles\63a33652ee679fc689a6410d7f4a0b97\INSTALL_force.rule">
+    <CustomBuild Include="B:\Programming\cpp\MiniEngine\External\SFML-2.5.1\builds\CMakeFiles\dd8bc6e4ebac3d120f15667ae5ec9b6e\INSTALL_force.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{EA286EC8-7329-3BB6-80D2-AE73AA1B31FF}</UniqueIdentifier>
+      <UniqueIdentifier>{D6318F52-91BE-31FD-A9FD-562AAA45748B}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

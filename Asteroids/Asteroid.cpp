@@ -1,11 +1,11 @@
 #include "Asteroid.h"
 
-#include <cstdlib>
 #include "Engine/Gameplay/Components/CollisionComponent.h"
 #include "Engine/Gameplay/Components/MoveComponent.h"
+#include "Engine/Gameplay/Components/OutsideComponent.h"
 #include "Engine/Gameplay/Components/SpriteComponent.h"
-#include "Engine/Gameplay/Components/WrapAroundComponent.h"
 #include "Engine/Math.h"
+#include "Engine/Random.h"
 
 void Asteroid::Init()
 {
@@ -22,7 +22,7 @@ void Asteroid::Init()
 	m_MoveComponent = AddComponent<MoveComponent>();
 	if (m_MoveComponent)
 	{
-		float rotation = static_cast<float>(std::rand() % 360); // TODO better random library
+		float rotation = Random::FloatInRange(0.0f, 360.0f);
 		Vec2 unitVector = Math::RotationToUnitVector(rotation);
 		m_MoveComponent->SetVelocity(m_FloatSpeed * unitVector);
 	}
@@ -36,9 +36,10 @@ void Asteroid::Init()
 		m_SpriteComponent->Animate(SpriteComponent::AnimationMode::SubimagesPerSecond, 20.0f, true);
 	}
 
-	m_WrapAroundComponent = AddComponent<WrapAroundComponent>();
-	if (m_WrapAroundComponent)
+	m_OutsideComponent = AddComponent<OutsideComponent>();
+	if (m_OutsideComponent)
 	{
-		m_WrapAroundComponent->m_BoundSize = { 640.0f, 480.0f };
+		m_OutsideComponent->SetResponse(OutsideComponent::Response::Wrap);
+		m_OutsideComponent->SetReferenceSprite(m_SpriteComponent);
 	}
 }

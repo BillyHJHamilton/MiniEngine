@@ -51,9 +51,6 @@
     <ClCompile Include="Engine\Gameplay\Components\Collider.cpp">
       <Filter>Source Files\Engine\Gameplay\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Gameplay\Components\WrapAroundComponent.cpp">
-      <Filter>Source Files\Engine\Gameplay\Components</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\Gameplay\Component.cpp">
       <Filter>Source Files\Engine\Gameplay</Filter>
     </ClCompile>
@@ -108,6 +105,12 @@
     <ClCompile Include="Asteroids\AsteroidSizes.cpp">
       <Filter>Source Files\Asteroids</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Random.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Gameplay\Components\OutsideComponent.cpp">
+      <Filter>Source Files\Engine\Gameplay\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Gameplay\Components\SpriteComponent.h">
@@ -131,20 +134,11 @@
     <ClInclude Include="Engine\Gameplay\Components\Collider.h">
       <Filter>Source Files\Engine\Gameplay\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Core.h">
-      <Filter>Source Files\Engine\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Gameplay\Components\WrapAroundComponent.h">
-      <Filter>Source Files\Engine\Gameplay\Components</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Core\TypeInfo.h">
       <Filter>Source Files\Engine\Core</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Core\CoreHeader.h">
       <Filter>Source Files\Engine\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Gameplay.h">
-      <Filter>Source Files\Engine\Gameplay</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Gameplay\GameplayUtiltiy.h">
       <Filter>Source Files\Engine\Gameplay</Filter>
@@ -196,6 +190,18 @@
     </ClInclude>
     <ClInclude Include="Asteroids\AsteroidSizes.h">
       <Filter>Source Files\Asteroids</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Core.h">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Gameplay.h">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Random.h">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Gameplay\Components\OutsideComponent.h">
+      <Filter>Source Files\Engine\Gameplay\Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

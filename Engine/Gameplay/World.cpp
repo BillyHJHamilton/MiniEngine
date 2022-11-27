@@ -1,5 +1,15 @@
 #include "World.h"
 
+void World::SetSize(Vec2 newSize)
+{
+	m_Size = newSize;
+}
+
+Vec2 World::GetSize() const
+{
+	return m_Size;
+}
+
 void World::Tick(float deltaTime)
 {
 	// Iterate by index because new objects could be added during the tick.

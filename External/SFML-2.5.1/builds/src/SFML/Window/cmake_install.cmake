@@ -1,4 +1,4 @@
-# Install script for directory: C:/HackDay/MiniEngine/External/SFML-2.5.1/src/SFML/Window
+# Install script for directory: B:/Programming/cpp/MiniEngine/External/SFML-2.5.1/src/SFML/Window
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,25 +34,25 @@ endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "devel" OR NOT CMAKE_INSTALL_COMPONENT)
   if(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY OPTIONAL FILES "C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/lib/Debug/sfml-window-d.lib")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY OPTIONAL FILES "B:/Programming/cpp/MiniEngine/External/SFML-2.5.1/builds/lib/Debug/sfml-window-d.lib")
   elseif(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY OPTIONAL FILES "C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/lib/Release/sfml-window.lib")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY OPTIONAL FILES "B:/Programming/cpp/MiniEngine/External/SFML-2.5.1/builds/lib/Release/sfml-window.lib")
   elseif(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Mm][Ii][Nn][Ss][Ii][Zz][Ee][Rr][Ee][Ll])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY OPTIONAL FILES "C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/lib/MinSizeRel/sfml-window.lib")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY OPTIONAL FILES "B:/Programming/cpp/MiniEngine/External/SFML-2.5.1/builds/lib/MinSizeRel/sfml-window.lib")
   elseif(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Rr][Ee][Ll][Ww][Ii][Tt][Hh][Dd][Ee][Bb][Ii][Nn][Ff][Oo])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY OPTIONAL FILES "C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/lib/RelWithDebInfo/sfml-window.lib")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY OPTIONAL FILES "B:/Programming/cpp/MiniEngine/External/SFML-2.5.1/builds/lib/RelWithDebInfo/sfml-window.lib")
   endif()
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "bin" OR NOT CMAKE_INSTALL_COMPONENT)
   if(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE SHARED_LIBRARY FILES "C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/lib/Debug/sfml-window-d-2.dll")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE SHARED_LIBRARY FILES "B:/Programming/cpp/MiniEngine/External/SFML-2.5.1/builds/lib/Debug/sfml-window-d-2.dll")
   elseif(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE SHARED_LIBRARY FILES "C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/lib/Release/sfml-window-2.dll")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE SHARED_LIBRARY FILES "B:/Programming/cpp/MiniEngine/External/SFML-2.5.1/builds/lib/Release/sfml-window-2.dll")
   elseif(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Mm][Ii][Nn][Ss][Ii][Zz][Ee][Rr][Ee][Ll])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE SHARED_LIBRARY FILES "C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/lib/MinSizeRel/sfml-window-2.dll")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE SHARED_LIBRARY FILES "B:/Programming/cpp/MiniEngine/External/SFML-2.5.1/builds/lib/MinSizeRel/sfml-window-2.dll")
   elseif(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Rr][Ee][Ll][Ww][Ii][Tt][Hh][Dd][Ee][Bb][Ii][Nn][Ff][Oo])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE SHARED_LIBRARY FILES "C:/HackDay/MiniEngine/External/SFML-2.5.1/builds/lib/RelWithDebInfo/sfml-window-2.dll")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE SHARED_LIBRARY FILES "B:/Programming/cpp/MiniEngine/External/SFML-2.5.1/builds/lib/RelWithDebInfo/sfml-window-2.dll")
   endif()
 endif()
 

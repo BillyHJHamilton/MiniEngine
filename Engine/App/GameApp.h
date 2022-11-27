@@ -24,7 +24,7 @@ protected:
 	virtual void StartupLoadAssets() {}
 
 	// Override this to initialize systems at app startup.
-	virtual void StartupInit() {}
+	virtual void StartupInit();
 
 	virtual void CreateWindow();
 

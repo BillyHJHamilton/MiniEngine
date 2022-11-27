@@ -4,8 +4,8 @@
 
 class CollisionComponent;
 class MoveComponent;
+class OutsideComponent;
 class SpriteComponent;
-class WrapAroundComponent;
 
 class Asteroid : public GameObject
 {
@@ -16,7 +16,7 @@ protected:
 	CollisionComponent* m_CollisionComponent = nullptr;
 	MoveComponent* m_MoveComponent = nullptr;
 	SpriteComponent* m_SpriteComponent = nullptr;
-	WrapAroundComponent* m_WrapAroundComponent = nullptr;
+	OutsideComponent* m_OutsideComponent = nullptr;
 
 	float m_FloatSpeed = 80.0f; // Pixels per second
 	float m_Scale = 1.0f;

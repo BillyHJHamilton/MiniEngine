@@ -125,6 +125,16 @@ public:
 			&& m_ControlBlock->IsAlive();
 	}
 
+	void Reset()
+	{
+		if (m_ControlBlock)
+		{
+			m_ControlBlock->Decrement();
+		}
+		m_Ptr = nullptr;
+		m_ControlBlock = nullptr;
+	}
+
 private:
 	T* m_Ptr = nullptr;
 	RefControlBlock* m_ControlBlock = nullptr;

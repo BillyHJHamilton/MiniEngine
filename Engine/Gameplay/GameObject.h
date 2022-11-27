@@ -39,6 +39,8 @@ public:
 	Vec2 GetPosition() const { return m_Position; }
 	void SetPosition(Vec2 newPosition);
 	void MovePosition(Vec2 relativeVector);
+	void MoveX(float relativeX);
+	void MoveY(float relativeY);
 	MulticastEvent<Vec2> EventPositionChanged;
 
 	void AddTag(NameHash newTag);

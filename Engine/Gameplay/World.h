@@ -14,6 +14,9 @@ public:
 
 	template<typename SystemType> SystemType* GetSystem();
 
+	void SetSize(Vec2 newSize);
+	Vec2 GetSize() const;
+
 	void Tick(float deltaTime);
 	void Draw(sf::RenderTarget& renderTarget) const;
 
@@ -22,6 +25,8 @@ private:
 
 	std::vector<std::unique_ptr<GameObject>> m_ObjectList;
 	std::unordered_map<NameHash, std::unique_ptr<GameSystem>> m_SystemMap;
+
+	Vec2 m_Size = {640.0f, 480.0f};
 };
 
 // Template implementations

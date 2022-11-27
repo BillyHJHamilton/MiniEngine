@@ -4,6 +4,7 @@
 
 class CollisionComponent;
 class MoveComponent;
+class OutsideComponent;
 class SpriteComponent;
 
 class Laser : public GameObject
@@ -18,5 +19,6 @@ protected:
 
 	CollisionComponent* m_CollisionComponent = nullptr;
 	MoveComponent* m_MoveComponent = nullptr;
+	OutsideComponent* m_OutsideComponent = nullptr;
 	SpriteComponent* m_SpriteComponent = nullptr;
 };

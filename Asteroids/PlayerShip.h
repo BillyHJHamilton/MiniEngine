@@ -6,7 +6,7 @@
 class CollisionComponent;
 class MoveComponent;
 class SpriteComponent;
-class WrapAroundComponent;
+class OutsideComponent;
 
 class PlayerShip : public GameObject
 {
@@ -23,7 +23,7 @@ protected:
 	CollisionComponent* m_CollisionComponent = nullptr;
 	MoveComponent* m_MoveComponent = nullptr;
 	SpriteComponent* m_SpriteComponent = nullptr;
-	WrapAroundComponent* m_WrapAroundComponent = nullptr;
+	OutsideComponent* m_OutsideComponent = nullptr;
 
 	const float m_RotationSpeed = 270.0f; // Degrees per second
 	const float m_Acceleration = 250.0f; // Pixels per second squared

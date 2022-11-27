@@ -3,10 +3,11 @@
 #include "Asteroids/Explosion.h"
 #include "Asteroids/Laser.h"
 #include "Engine/App/GameApp.h"
+#include "Engine/Gameplay.h"
 #include "Engine/Gameplay/Components/CollisionComponent.h"
 #include "Engine/Gameplay/Components/MoveComponent.h"
 #include "Engine/Gameplay/Components/SpriteComponent.h"
-#include "Engine/Gameplay/Components/WrapAroundComponent.h"
+#include "Engine/Gameplay/Components/OutsideComponent.h"
 #include "Engine/Math.h"
 #include "SFML/Window/Keyboard.hpp"
 
@@ -22,10 +23,6 @@ void PlayerShip::Init()
 	}
 
 	m_MoveComponent = AddComponent<MoveComponent>();
-	if (m_MoveComponent)
-	{
-		m_MoveComponent->SetVelocity( {0.0f, 25.0f} );
-	}
 
 	m_SpriteComponent = EmplaceComponent<SpriteComponent>("Fighter1");
 	if (m_SpriteComponent)
@@ -34,10 +31,11 @@ void PlayerShip::Init()
 		m_SpriteComponent->m_Sprite.setOrigin( { 16.0f, 16.0f } );
 	}
 
-	m_WrapAroundComponent = AddComponent<WrapAroundComponent>();
-	if (m_WrapAroundComponent)
+	m_OutsideComponent = AddComponent<OutsideComponent>();
+	if (m_OutsideComponent)
 	{
-		m_WrapAroundComponent->m_BoundSize = {640.0f, 480.0f};
+		m_OutsideComponent->SetResponse(OutsideComponent::Response::Wrap);
+		m_OutsideComponent->SetReferenceSprite(m_SpriteComponent);
 	}
 
 	GameApp::GetInputEventManager().GetKeyPressedEvent(sf::Keyboard::Space).AddDelegate(this,

@@ -89,6 +89,18 @@ void GameObject::MovePosition(Vec2 relativeVector)
 	SetPosition(m_Position + relativeVector);
 }
 
+void GameObject::MoveX(float relativeX)
+{
+	m_Position.x += relativeX;
+	EventPositionChanged.Broadcast(m_Position);
+}
+
+void GameObject::MoveY(float relativeY)
+{
+	m_Position.y += relativeY;
+	EventPositionChanged.Broadcast(m_Position);
+}
+
 void GameObject::AddTag(NameHash newTag)
 {
 	if (std::find(m_TagList.cbegin(), m_TagList.cend(), newTag) == m_TagList.end())

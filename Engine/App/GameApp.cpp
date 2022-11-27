@@ -1,6 +1,7 @@
 #include "GameApp.h"
 
 #include "Engine/Gameplay.h"
+#include "Engine/Random.h"
 #include "SFML/Window/Event.hpp"
 
 GameApp* GameApp::s_Instance = nullptr;
@@ -49,10 +50,17 @@ void GameApp::Run()
 	ShutdownCleanup();
 }
 
+void GameApp::StartupInit()
+{
+	Random::SeedGenerator();
+}
+
 void GameApp::CreateWindow()
 {
 	// TODO Provide a way to configure the window.
 	m_MainWindow.create(sf::VideoMode(640, 480), "MiniEngine");
+
+	m_MainWindow.setKeyRepeatEnabled(false);
 
 	m_Clock.restart();
 }
