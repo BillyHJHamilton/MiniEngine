@@ -2,16 +2,12 @@
 
 #include "Engine/Core.h"
 
-class GameSystem
+class GameSystem : public ITypeInfoProvider
 {
 public:
 	GameSystem();
 	virtual ~GameSystem();
-	static NameHash StaticType() { return NameHash("GameSystem"); }
-	virtual NameHash Type() { return GameSystem::StaticType(); }
-
-	World* GetWorld() { return m_World; }
-	const World* GetWorld() const { return m_World; }
+	MACRO_DeclareTypeInfo(GameSystem)
 
 	virtual void Tick(float deltaTime) {};
 
@@ -20,7 +16,6 @@ public:
 #endif
 
 private:
-	World* m_World;
 
 #if DEBUG_MEMORY
 	static int s_NumCreated;

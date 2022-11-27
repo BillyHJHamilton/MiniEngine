@@ -1,5 +1,7 @@
 #include "GameSystem.h"
 
+TypeInfo const GameSystem::s_TypeInfo = TypeInfo("GameSystem", {});
+
 GameSystem::GameSystem()
 {
 	#if DEBUG_MEMORY

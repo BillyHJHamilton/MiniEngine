@@ -2,6 +2,8 @@
 
 #include "Engine/Gameplay/GameplayUtiltiy.h"
 
+TypeInfo const CollisionSystem::s_TypeInfo = TypeInfo("CollisionSystem", {});
+
 void CollisionSystem::AddToLayer(NameHash layerName, CollisionComponent* collisionComponent)
 {
 	LayerType& layer = m_LayerMap[layerName];
