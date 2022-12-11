@@ -12,6 +12,7 @@ Vec2 World::GetSize() const
 
 void World::Tick(float deltaTime)
 {
+	// Tick game objects.
 	// Iterate by index because new objects could be added during the tick.
 	for (int i = 0; i < m_ObjectList.size(); ++i)
 	{
@@ -19,6 +20,21 @@ void World::Tick(float deltaTime)
 		{
 			m_ObjectList[i]->Tick(deltaTime);
 		}
+	}
+
+	// Tick game systems.
+	std::vector<GameSystem*> systemsToTick;
+	systemsToTick.reserve(m_SystemMap.size());
+	for (std::pair<const NameHash, std::unique_ptr<GameSystem>>& system : m_SystemMap)
+	{
+		if (system.second)
+		{
+			systemsToTick.push_back(system.second.get());
+		}
+	}
+	for (GameSystem* system : systemsToTick)
+	{
+		system->Tick(deltaTime);
 	}
 
 	CleanUpDeadObjects();
@@ -47,7 +63,7 @@ void World::CleanUpDeadObjects()
 	{
 		if (!m_ObjectList[i]->IsValid())
 		{
-			std::swap(m_ObjectList[i], m_ObjectList.back());
+			m_ObjectList[i] = std::move(m_ObjectList.back());
 			m_ObjectList.pop_back();
 			--i;
 		}

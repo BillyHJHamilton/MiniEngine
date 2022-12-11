@@ -14,6 +14,7 @@ public:
 private:
 	NameHash m_TypeName;
 	std::vector<NameHash> m_ParentTypes;
+//	void* (*m_FactoryMethod)(void);
 };
 
 class TypeInfoStore
@@ -48,6 +49,8 @@ public:
 
 #define MACRO_DefineTypeInfo(ThisTypeName) \
 	TypeInfo const ThisTypeName::s_TypeInfo = TypeInfo( NameHash(#ThisTypeName), {} );
+
+// ThisTypeName* ThisTypeName##Factory () { return new ThisTypeName; } \
 
 #define MACRO_DefineTypeInfoOneParent(ThisTypeName,ParentName) \
 	TypeInfo const ThisTypeName::s_TypeInfo = TypeInfo( NameHash(#ThisTypeName), {NameHash(#ParentName)} );

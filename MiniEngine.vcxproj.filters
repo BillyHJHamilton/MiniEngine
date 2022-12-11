@@ -120,6 +120,9 @@
     <ClCompile Include="Asteroids\ScoreSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Gameplay\GameSystems\TimerSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Gameplay\Components\SpriteComponent.h">
@@ -219,6 +222,9 @@
       <Filter>Source Files\Asteroids</Filter>
     </ClInclude>
     <ClInclude Include="Asteroids\ScoreSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Gameplay\GameSystems\TimerSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

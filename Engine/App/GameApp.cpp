@@ -31,6 +31,11 @@ InputEventManager& GameApp::GetInputEventManager()
 	return Get().m_InputEventManager;
 }
 
+double GameApp::GetClockTime() const
+{
+	return m_Clock.getElapsedTime().asMicroseconds() / 1'000'000.0;
+}
+
 void GameApp::Run()
 {
 	assert(s_Instance == nullptr);
@@ -67,11 +72,11 @@ void GameApp::CreateWindow()
 
 void GameApp::AppLoop()
 {
-	float frameStart = m_Clock.getElapsedTime().asSeconds();
+	double frameStart = GetClockTime();
 	while (m_MainWindow.isOpen())
 	{
-		float fixedFrameDuration = 1.0f / m_FixedFPS;
-		float frameEnd = frameStart + fixedFrameDuration;
+		float fixedFrameDuration = 1.0f / static_cast<float>(m_FixedFPS);
+		double frameEnd = frameStart + fixedFrameDuration;
 
 		AppHandleEvents();
 
@@ -80,7 +85,8 @@ void GameApp::AppLoop()
 		do
 		{
 			AppDraw();
-		} while (m_Clock.getElapsedTime().asSeconds() < frameEnd);
+		}
+		while (GetClockTime() < frameEnd);
 
 		frameStart = frameEnd;
 	}

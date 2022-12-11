@@ -176,6 +176,7 @@ copy /Y "$(ProjectDir)External\SFML-2.5.1\builds\lib\Release\sfml-window-2.dll" 
     <ClCompile Include="Engine\Gameplay\GameSystems\CollisionSystem.cpp" />
     <ClCompile Include="Engine\Core\NameHash.cpp" />
     <ClCompile Include="Engine\Core\Reference.cpp" />
+    <ClCompile Include="Engine\Gameplay\GameSystems\TimerSystem.cpp" />
     <ClCompile Include="Engine\Gameplay\World.cpp" />
     <ClCompile Include="Engine\App\InputEventManager.cpp" />
     <ClCompile Include="Asteroids\Main.cpp" />
@@ -209,6 +210,7 @@ copy /Y "$(ProjectDir)External\SFML-2.5.1\builds\lib\Release\sfml-window-2.dll" 
     <ClInclude Include="Engine\Gameplay\GameSystem.h" />
     <ClInclude Include="Engine\Gameplay\GameSystems\CollisionSystem.h" />
     <ClInclude Include="Engine\App\InputEventManager.h" />
+    <ClInclude Include="Engine\Gameplay\GameSystems\TimerSystem.h" />
     <ClInclude Include="Engine\Math.h" />
     <ClInclude Include="Engine\Core\NameHash.h" />
     <ClInclude Include="Engine\Core\Reference.h" />

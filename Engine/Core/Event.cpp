@@ -17,6 +17,16 @@ namespace EventPrivate
 			return 2*valueIn;
 		}
 	};
+
+	void TripleValue(int valueIn, int& valueOut)
+	{
+		valueOut = 3*valueIn;
+	}
+
+	int ReturnTripleValue(int valueIn)
+	{
+		return 3*valueIn;
+	}
 }
 
 void TestEvents()
@@ -30,16 +40,47 @@ void TestEvents()
 	assert(output == 10);
 	myExampleEvent.RemoveDelegatesForReceiver(&myExample);
 
-	/*
-	Example MyExample2;
-	ExampleCallback myExampleCallback;
-	myExampleCallback.BindDelegate(&MyExample2, &Example::PrintValue);
-	myExampleCallback.Execute(6);*/
-
 	CallbackEvent<int,int> myExampleCallback;
 	myExampleCallback.BindDelegate(&myExample, &EventPrivate::Example::ReturnDoubleValue);
 	output = myExampleCallback.Execute(6);
 	assert(output == 12);
+
+	// Test weak ref delegate.
+	{
+		RefOwner<EventPrivate::Example> owner1(new EventPrivate::Example);
+
+		myExampleEvent.AddWeakRef(owner1.GetReference(), &EventPrivate::Example::DoubleValue);
+		myExampleEvent.Broadcast(5, output);
+		assert(output == 10);
+
+		myExampleCallback.BindWeakRef(owner1.GetReference(), &EventPrivate::Example::ReturnDoubleValue);
+		output = myExampleCallback.Execute(3);
+		assert(output == 6);
+
+		// Adding with an lvalue
+		WeakRef<EventPrivate::Example> ref1 = owner1.GetReference();
+		myExampleEvent.AddWeakRef(ref1, &EventPrivate::Example::DoubleValue);
+		myExampleCallback.BindWeakRef(ref1, &EventPrivate::Example::ReturnDoubleValue);
+	}
+	
+	// The weak ref delegates should have been unbound when the owner went out of scope.
+	output = 5;
+	myExampleEvent.Broadcast(output, output);
+	assert(output == 5);
+
+	assert(myExampleCallback.IsBound() == false);
+
+	// Test free function delegates.
+	myExampleCallback.BindFreeFunction(&EventPrivate::ReturnTripleValue);
+	output = myExampleCallback.Execute(6);
+	assert(output == 18);
+
+	myExampleEvent.BindFreeFunction(&EventPrivate::TripleValue);
+	output = 4;
+	myExampleEvent.Broadcast(output, output);
+	assert(output == 12);
+
+	myExampleEvent.RemoveDelegateForFreeFunction(&EventPrivate::TripleValue);
 }
 #endif
 

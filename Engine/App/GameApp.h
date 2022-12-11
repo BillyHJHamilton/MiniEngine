@@ -17,6 +17,9 @@ public:
 	static AssetManager& GetAssetManager();
 	static InputEventManager& GetInputEventManager();
 
+	// Returns seconds since the game app started.
+	double GetClockTime() const;
+
 	void Run();
 
 protected:

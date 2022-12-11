@@ -3,7 +3,6 @@
 #include "CoreHeader.h"
 
 // TODO: These are probably not thread-safe.
-// TODO: Support const ref.
 // TODO: Conversion between types of ref.
 
 class RefControlBlock
