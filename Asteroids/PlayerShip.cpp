@@ -39,8 +39,8 @@ void PlayerShip::Init()
 		m_OutsideComponent->SetReferenceSprite(m_SpriteComponent);
 	}
 
-	GameApp::GetInputEventManager().GetKeyPressedEvent(sf::Keyboard::Space).AddDelegate(this,
-		&PlayerShip::OnSpacePressed);
+	GameApp::GetInputEventManager().GetKeyPressedEvent(sf::Keyboard::Space).AddWeakRef(
+		ObjectWeakRef(this), &PlayerShip::OnSpacePressed);
 
 	m_IsInvincible = true;
 	GetWorld()->GetSystem<TimerSystem>()->StartTimer(m_InvincibilityTime,

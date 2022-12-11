@@ -4,6 +4,8 @@
 
 namespace CoreUtility
 {
+	// Utility functions for removing items from std::vector without maintaining order.
+
 	template<typename VectorItemType>
 	void RemoveSwap(std::vector<VectorItemType>& vector, int indexToRemove)
 	{
@@ -15,7 +17,7 @@ namespace CoreUtility
 	template<typename VectorItemType>
 	void RemoveSwap(std::vector<VectorItemType>& vector, typename std::vector<VectorItemType>::iterator& itrToRemove)
 	{
-		//assert(itrToRemove != vector.cend());
+		assert(itrToRemove != vector.cend());
 		auto backItr = vector.end() - 1;
 		*itrToRemove = std::move(*backItr);
 		vector.pop_back();
