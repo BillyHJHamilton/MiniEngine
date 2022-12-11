@@ -4,13 +4,8 @@
 
 #include <queue> // For priority queue
 
-// Major TODO:
-// This system can trigger timers on objects after they are deleted!
-// It's memory corruption.
-// We could require each object to clean up its timers...
-// But that would require a way to delete from the priority queue.
-// So we need a better approach.
-// We may need "Weak Ref Safety Delegates".
+// This system can be used to request execution of a function at a future time.
+// A priority queue is used to efficiently check only the next timer that will trigger.
 
 class TimerSystem : public GameSystem
 {
@@ -22,11 +17,21 @@ public:
 		std::cout << "Created timer system." << std::endl;
 	}
 
+	// Set a timer to execute a member function on an object.
+	// The object must be provided as a weak reference to avoid a callback on a deleted object.
 	template<typename ReceiverType>
-	void StartTimer(float seconds, ReceiverType* receiver, void (ReceiverType::*memberFunction)(void))
+	void StartTimer(float seconds, WeakRef<ReceiverType> receiver, void (ReceiverType::*memberFunction)(void))
 	{
 		CallbackEvent<void> tempEvent;
-		tempEvent.BindDelegate(receiver, memberFunction);
+		tempEvent.BindWeakRef(std::move(receiver), memberFunction);
+		StartTimerInternal(seconds, std::move(tempEvent));
+	}
+
+	// Set a timer to execute a free function.
+	void StartTimer(float seconds, void (*freeFunction)(void))
+	{
+		CallbackEvent<void> tempEvent;
+		tempEvent.BindFreeFunction(freeFunction);
 		StartTimerInternal(seconds, std::move(tempEvent));
 	}
 

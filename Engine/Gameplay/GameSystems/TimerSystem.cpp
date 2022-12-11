@@ -24,3 +24,7 @@ void TimerSystem::Tick(float deltaTime)
 		m_TimerPriorityQueue.pop();
 	}
 }
+
+// Note: A limitation of the current design is that once a timer is scheduled,
+// it cannot be cancelled.  It is as unalterable as the law of the Medes and Persians.
+// This is another irritating limitation of the std::priority_queue.
