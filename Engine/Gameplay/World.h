@@ -21,8 +21,6 @@ public:
 	void Draw(sf::RenderTarget& renderTarget) const;
 
 private:
-	void CleanUpDeadObjects();
-
 	std::vector<std::unique_ptr<GameObject>> m_ObjectList;
 	std::unordered_map<NameHash, std::unique_ptr<GameSystem>> m_SystemMap;
 

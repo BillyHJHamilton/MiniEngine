@@ -1,5 +1,33 @@
 #include "Reference.h"
 
+#if DEBUG_MEMORY
+RefControlBlock::RefControlBlock()
+{
+	++s_NumCreated;
+}
+
+RefControlBlock::~RefControlBlock()
+{
+	++s_NumDestroyed;
+}
+
+int RefControlBlock::s_NumCreated = 0;
+int RefControlBlock::s_NumDestroyed = 0;
+
+void RefControlBlock::CheckMemoryReleased()
+{
+	if (s_NumCreated == s_NumDestroyed)
+	{
+		std::cout << "Reference Memory OK." << std::endl;
+	}
+	else
+	{
+		std::cerr << "Reference Memory Error!  Created " << s_NumCreated
+			<< " Control Blocks, Destroyed " << s_NumDestroyed << std::endl;
+	}
+}
+#endif
+
 #if UNIT_TESTS
 void TestReferences()
 {

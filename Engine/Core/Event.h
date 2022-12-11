@@ -3,6 +3,7 @@
 #include "CoreHeader.h"
 
 #include "Engine/Core/Reference.h"
+#include "Engine/Core/CoreUtility.h"
 
 // Delegate broadcaster
 
@@ -12,6 +13,7 @@ template<typename ReturnType, typename... ArgumentList>
 class IDelegate
 {
 public:
+	virtual ~IDelegate() = default;
 	virtual ReturnType Execute(ArgumentList... Arguments) = 0;
 	virtual const void* GetBoundObjectPointer() const = 0;
 	virtual bool IsValid() const = 0;
@@ -223,6 +225,11 @@ public:
 		m_DelegateList.erase(removeItr);
 	}
 
+	void Reserve(int numElements)
+	{
+		m_DelegateList.reserve(numElements);
+	}
+
 	void Clear()
 	{
 		m_DelegateList.clear();
@@ -239,8 +246,7 @@ public:
 			}
 			else
 			{
-				m_DelegateList[i] = std::move(m_DelegateList.back());
-				m_DelegateList.pop_back();
+				CoreUtility::RemoveSwap(m_DelegateList, i);
 				--i;
 			}
 		}

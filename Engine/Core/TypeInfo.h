@@ -38,6 +38,7 @@ private:
 class ITypeInfoProvider
 {
 public:
+	virtual ~ITypeInfoProvider() {}
 	virtual TypeInfo const& GetTypeInfo() const = 0;
 	NameHash GetTypeName() const { return GetTypeInfo().GetName(); }
 };

@@ -51,6 +51,7 @@
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
+    <EnableUnitySupport>false</EnableUnitySupport>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -134,6 +135,7 @@ copy /Y "$(ProjectDir)External\SFML-2.5.1\builds\lib\Debug\sfml-window-d-2.dll" 
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)External\SFML-2.5.1\include;$(ProjectDir)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <MinFilesInUnityFile>2</MinFilesInUnityFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -190,6 +192,7 @@ copy /Y "$(ProjectDir)External\SFML-2.5.1\builds\lib\Release\sfml-window-2.dll" 
     <ClInclude Include="Asteroids\Laser.h" />
     <ClInclude Include="Asteroids\ScoreSystem.h" />
     <ClInclude Include="Engine\App\AssetManager.h" />
+    <ClInclude Include="Engine\Core\CoreUtility.h" />
     <ClInclude Include="Engine\Core\TypeInfo.h" />
     <ClInclude Include="Engine\App\GameApp.h" />
     <ClInclude Include="Engine\Gameplay.h" />

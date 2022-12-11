@@ -115,8 +115,7 @@ void GameObject::RemoveTag(NameHash tagToRemove)
 	auto itr = std::find(m_TagList.begin(), m_TagList.end(), tagToRemove);
 	if (itr != m_TagList.end())
 	{
-		*itr = m_TagList.back();
-		m_TagList.pop_back();
+		CoreUtility::RemoveSwap(m_TagList, itr);
 		EventTagRemoved.Broadcast(tagToRemove);
 	}
 }
@@ -181,9 +180,14 @@ void GameObject::SetWorld(World* NewWorld)
 	m_World = NewWorld;
 }
 
-bool IsValid(const GameObject* gameObject)
+bool IsValid(const GameObject* const gameObject)
 {
 	return gameObject != nullptr && gameObject->IsValid();
+}
+
+bool IsValid(const std::unique_ptr<GameObject>& gameObjectUniquePtr)
+{
+	return gameObjectUniquePtr && gameObjectUniquePtr->IsValid();
 }
 
 #if UNIT_TESTS

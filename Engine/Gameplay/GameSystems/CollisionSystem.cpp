@@ -30,12 +30,7 @@ void CollisionSystem::RemoveFromAllLayers(CollisionComponent* collisionComponent
 
 void CollisionSystem::RemoveFromLayer(LayerType& layer, CollisionComponent* collisionComponent)
 {
-	auto itr = std::find(layer.begin(), layer.end(), collisionComponent);
-	if (itr != layer.end())
-	{
-		*itr = std::move(layer.back());
-		layer.pop_back();
-	}
+	CoreUtility::RemoveSwapFirstMatchingItem(layer, collisionComponent);
 }
 
 void CollisionSystem::RemoveInvalidComponents()
@@ -49,15 +44,7 @@ void CollisionSystem::RemoveInvalidComponents()
 
 void CollisionSystem::RemoveInvalidComponentsFromLayer(LayerType& layer)
 {
-	for (int i = 0; i < layer.size(); ++i)
-	{
-		if (!layer[i].IsValid())
-		{
-			layer[i] = std::move(layer.back());
-			layer.pop_back();
-			--i;
-		}
-	}
+	CoreUtility::RemoveSwapAllNullItems(layer);
 }
 
 void CollisionSystem::CheckAgainstLayer(CollisionComponent* collisionComponent, NameHash layerName,
@@ -70,7 +57,7 @@ void CollisionSystem::CheckAgainstLayer(CollisionComponent* collisionComponent, 
 	bool foundInvalid = false;
 	for (WeakRef<CollisionComponent>& otherComponent : layer)
 	{
-		if (!IsValid(otherComponent))
+		if (!otherComponent.IsValid())
 		{
 			foundInvalid = true;
 			continue;

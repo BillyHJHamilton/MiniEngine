@@ -5,6 +5,7 @@
 
 #include <SFML/System/Vector2.hpp>
 
+#include "Core/CoreUtility.h"
 #include "Core/Event.h"
 #include "Core/NameHash.h"
 #include "Core/Reference.h"

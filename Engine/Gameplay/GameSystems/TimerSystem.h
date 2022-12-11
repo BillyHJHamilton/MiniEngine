@@ -12,11 +12,6 @@ class TimerSystem : public GameSystem
 public:
 	MACRO_DeclareTypeInfo(TimerSystem)
 
-	TimerSystem()
-	{
-		std::cout << "Created timer system." << std::endl;
-	}
-
 	// Set a timer to execute a member function on an object.
 	// The object must be provided as a weak reference to avoid a callback on a deleted object.
 	template<typename ReceiverType>

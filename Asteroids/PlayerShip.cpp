@@ -8,6 +8,7 @@
 #include "Engine/Gameplay/Components/MoveComponent.h"
 #include "Engine/Gameplay/Components/SpriteComponent.h"
 #include "Engine/Gameplay/Components/OutsideComponent.h"
+#include "Engine/Gameplay/GameSystems/TimerSystem.h"
 #include "Engine/Math.h"
 #include "SFML/Window/Keyboard.hpp"
 
@@ -40,6 +41,10 @@ void PlayerShip::Init()
 
 	GameApp::GetInputEventManager().GetKeyPressedEvent(sf::Keyboard::Space).AddDelegate(this,
 		&PlayerShip::OnSpacePressed);
+
+	m_IsInvincible = true;
+	GetWorld()->GetSystem<TimerSystem>()->StartTimer(m_InvincibilityTime,
+		ObjectWeakRef(this), &PlayerShip::OnInvincibilityExpire);
 }
 
 void PlayerShip::Tick(float deltaTime)
@@ -77,8 +82,10 @@ void PlayerShip::Thrust(float acceleration, float deltaTime)
 
 void PlayerShip::OnHitAsteroid(GameObject* otherObject, CollisionComponent* otherComponent)
 {
-	assert(GetWorld());
-	ExplodeObject(*this);
+	if (!m_IsInvincible)
+	{
+		ExplodeObject(*this);
+	}
 }
 
 void PlayerShip::OnSpacePressed(const sf::Event::KeyEvent& keyEvent)
@@ -86,4 +93,9 @@ void PlayerShip::OnSpacePressed(const sf::Event::KeyEvent& keyEvent)
 	Laser* laser = GetWorld()->AddObject<Laser>();
 	laser->SetPosition(GetPosition());
 	laser->Shoot(GetRotation(), m_LaserSpeed);
+}
+
+void PlayerShip::OnInvincibilityExpire()
+{
+	m_IsInvincible = false;
 }

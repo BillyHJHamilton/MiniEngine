@@ -135,8 +135,8 @@ void GameApp::AppDraw()
 #if UNIT_TESTS
 void GameApp::StartupEngineTests()
 {
-	TestEvents();
 	TestReferences();
+	TestEvents();
 	NameHash::UnitTest();
 	GameObject::UnitTest();
 }
@@ -148,5 +148,6 @@ void GameApp::DestroyCheckMemory()
 	GameObject::CheckMemoryReleased();
 	GameSystem::CheckMemoryReleased();
 	Component::CheckMemoryReleased();
+	RefControlBlock::CheckMemoryReleased();
 }
 #endif

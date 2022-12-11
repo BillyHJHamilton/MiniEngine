@@ -13,12 +13,21 @@ Vec2 World::GetSize() const
 void World::Tick(float deltaTime)
 {
 	// Tick game objects.
-	// Iterate by index because new objects could be added during the tick.
-	for (int i = 0; i < m_ObjectList.size(); ++i)
+	// Copy the list before iteration as objects may be created during ticking.
+	// Only objects that existed at the start of the tick will be ticked.
+	std::vector<GameObject*> objectsToTick;
+	objectsToTick.reserve(m_ObjectList.size());
+	for (std::unique_ptr<GameObject>& object : m_ObjectList)
 	{
-		if (IsValid(m_ObjectList[i].get()))
+		objectsToTick.push_back(object.get());
+	}
+
+	bool foundInvalid = false;
+	for (GameObject* object : objectsToTick)
+	{
+		if (IsValid(object))
 		{
-			m_ObjectList[i]->Tick(deltaTime);
+			object->Tick(deltaTime);
 		}
 	}
 
@@ -37,14 +46,18 @@ void World::Tick(float deltaTime)
 		system->Tick(deltaTime);
 	}
 
-	CleanUpDeadObjects();
+	// Clean up dead objects
+	CoreUtility::RemoveSwapAllInvalidItems(m_ObjectList);
 }
 
 void World::Draw(sf::RenderTarget& renderTarget) const
 {
 	for (const std::unique_ptr<GameObject>& NextObject : m_ObjectList)
 	{
-		NextObject->Draw(renderTarget);
+		if (IsValid(NextObject.get()))
+		{
+			NextObject->Draw(renderTarget);
+		}
 	}
 }
 
@@ -55,17 +68,4 @@ GameObject* World::AddObject(GameObject* newObject)
 	newObject->SetWorld(this);
 	newObject->Init();
 	return newObject;
-}
-
-void World::CleanUpDeadObjects()
-{
-	for (int i = 0; i < m_ObjectList.size(); ++i)
-	{
-		if (!m_ObjectList[i]->IsValid())
-		{
-			m_ObjectList[i] = std::move(m_ObjectList.back());
-			m_ObjectList.pop_back();
-			--i;
-		}
-	}
 }

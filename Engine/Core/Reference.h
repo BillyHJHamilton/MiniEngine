@@ -8,6 +8,11 @@
 class RefControlBlock
 {
 public:
+#if DEBUG_MEMORY
+	RefControlBlock();
+	~RefControlBlock();
+#endif
+
 	bool IsAlive()
 	{
 		return m_Alive;
@@ -33,9 +38,19 @@ public:
 			delete this;
 		}
 	}
+
+#if DEBUG_MEMORY
+	static void CheckMemoryReleased();
+#endif
+
 private:
 	bool m_Alive = true;
 	int m_SoftRefCount = 0;
+
+#if DEBUG_MEMORY
+	static int s_NumCreated;
+	static int s_NumDestroyed;
+#endif
 };
 
 // A soft reference attached to an external control block.
@@ -68,7 +83,10 @@ public:
 	{
 		m_Ptr = other.m_Ptr;
 		m_ControlBlock = other.m_ControlBlock;
-		m_ControlBlock->Increment();
+		if (m_ControlBlock)
+		{
+			m_ControlBlock->Increment();
+		}
 	}
 	WeakRef& operator=(WeakRef other)
 	{

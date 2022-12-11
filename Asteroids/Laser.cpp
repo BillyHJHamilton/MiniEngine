@@ -4,6 +4,8 @@
 #include "Engine/Gameplay/Components/MoveComponent.h"
 #include "Engine/Gameplay/Components/OutsideComponent.h"
 #include "Engine/Gameplay/Components/SpriteComponent.h"
+#include "Engine/Gameplay/World.h"
+#include "Engine/Gameplay/GameSystems/TimerSystem.h"
 #include "Engine/Math.h"
 #include "Explosion.h"
 

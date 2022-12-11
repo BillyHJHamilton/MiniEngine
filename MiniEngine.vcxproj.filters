@@ -227,5 +227,8 @@
     <ClInclude Include="Engine\Gameplay\GameSystems\TimerSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\Core\CoreUtility.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

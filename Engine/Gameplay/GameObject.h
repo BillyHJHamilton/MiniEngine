@@ -36,6 +36,9 @@ public:
 	template<typename ComponentType> WeakRef<ComponentType> MakeComponentWeakRef(ComponentType* component);
 	template<typename ComponentType> WeakRef<const ComponentType> MakeComponentWeakRef(const ComponentType* component) const;
 
+	template<typename DerivedType> WeakRef<DerivedType> MakeDerivedWeakRef();
+	template<typename DerivedType> WeakRef<const DerivedType> MakeDerivedWeakRef() const;
+
 	Vec2 GetPosition() const { return m_Position; }
 	void SetPosition(Vec2 newPosition);
 	void MovePosition(Vec2 relativeVector);
@@ -90,6 +93,7 @@ private:
 };
 
 bool IsValid(const GameObject* gameObject);
+bool IsValid(const std::unique_ptr<GameObject>& gameObjectUniquePtr);
 
 // Template implementations
 
@@ -143,4 +147,18 @@ WeakRef<const ComponentType> GameObject::MakeComponentWeakRef(const ComponentTyp
 {
 	assert(component->GetOwner() == this);
 	return m_RefTracker.MakeReference(component);
+}
+
+template<typename DerivedType>
+WeakRef<DerivedType> GameObject::MakeDerivedWeakRef()
+{
+	DerivedType* const derivedThis = static_cast<DerivedType*>(this);
+	return m_RefTracker.MakeReference(derivedThis);
+}
+
+template<typename DerivedType>
+WeakRef<const DerivedType> GameObject::MakeDerivedWeakRef() const
+{
+	const DerivedType* const derivedThis = static_cast<const DerivedType*>(this);
+	return m_RefTracker.MakeReference(derivedThis);
 }

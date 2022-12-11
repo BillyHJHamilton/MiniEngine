@@ -19,6 +19,18 @@ WeakRef<const DerivedComponent> ComponentWeakRef(const DerivedComponent* ptr)
 	return ptr->GetOwner()->MakeComponentWeakRef<const DerivedComponent>(ptr);
 }
 
+template<typename DerivedGameObject>
+WeakRef<DerivedGameObject> ObjectWeakRef(DerivedGameObject* ptr)
+{
+	return ptr->MakeDerivedWeakRef<DerivedGameObject>();
+}
+
+template<typename DerivedGameObject>
+WeakRef<const DerivedGameObject> ObjectWeakRef(const DerivedGameObject* ptr)
+{
+	return ptr->MakeDerivedWeakRef<const DerivedGameObject>();
+}
+
 inline bool IsValid(const Component* component)
 {
 	return component != nullptr

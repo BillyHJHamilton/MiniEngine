@@ -8,6 +8,7 @@ class PointCollider : public ICollider
 public:
 	MACRO_DeclareTypeInfo(PointCollider)
 	PointCollider() = default;
+	virtual ~PointCollider() {}
 
 	virtual ECollisionResult ResolveCollision(const ICollider* other) const;
 	ECollisionResult WithPoint(const PointCollider& other) const;

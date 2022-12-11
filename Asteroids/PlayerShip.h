@@ -29,7 +29,11 @@ protected:
 	const float m_Acceleration = 250.0f; // Pixels per second squared
 	const float m_LaserSpeed = 500.0f;
 
+	const float m_InvincibilityTime = 2.0f;
+	bool m_IsInvincible = true;
+
 private:
 	void OnHitAsteroid(GameObject* otherObject, CollisionComponent* otherComponent);
 	void OnSpacePressed(const sf::Event::KeyEvent& keyEvent);
+	void OnInvincibilityExpire();
 };
