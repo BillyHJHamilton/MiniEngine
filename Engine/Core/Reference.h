@@ -91,7 +91,7 @@ public:
 	bool operator==(const WeakRef& other)
 	{
 		// These operations must check validity.
-		// Otherwise, we could match to a new object with the same address as an invalid object;
+		// Otherwise, we could match to a new object with the same address as an invalid object.
 		return (IsValid() && (m_Ptr == other.m_Ptr))
 			|| (!IsValid() && !other.IsValid());
 	}

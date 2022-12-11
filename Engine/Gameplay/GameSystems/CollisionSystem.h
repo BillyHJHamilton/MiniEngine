@@ -22,6 +22,7 @@ private:
 	using LayerType = std::vector<WeakRef<CollisionComponent>>;
 
 	void RemoveFromLayer(LayerType& layer, CollisionComponent* collisionComponent);
+	void RemoveInvalidComponentsFromLayer(LayerType& layer);
 
 	std::unordered_map<NameHash, LayerType> m_LayerMap;
 };

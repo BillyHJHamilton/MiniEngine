@@ -43,14 +43,19 @@ void CollisionSystem::RemoveInvalidComponents()
 	for (auto& pair : m_LayerMap)
 	{
 		LayerType& layer = pair.second;
-		for (int i = 0; i < layer.size(); ++i)
+		RemoveInvalidComponentsFromLayer(layer);
+	}
+}
+
+void CollisionSystem::RemoveInvalidComponentsFromLayer(LayerType& layer)
+{
+	for (int i = 0; i < layer.size(); ++i)
+	{
+		if (!layer[i].IsValid())
 		{
-			if (!layer[i].IsValid())
-			{
-				layer[i] = std::move(layer.back());
-				layer.pop_back();
-				--i;
-			}
+			layer[i] = std::move(layer.back());
+			layer.pop_back();
+			--i;
 		}
 	}
 }
@@ -59,13 +64,20 @@ void CollisionSystem::CheckAgainstLayer(CollisionComponent* collisionComponent, 
 	CallbackEvent<void,GameObject*,CollisionComponent*>& eventCollisionHandler)
 {
 	// Cache collisions, to avoid problem with objects being added during iteration.
-	// TODO maybe instead defer object spawning
 	std::vector<CollisionComponent*> hitComponents;
 
 	LayerType& layer = m_LayerMap[layerName];
+	bool foundInvalid = false;
 	for (WeakRef<CollisionComponent>& otherComponent : layer)
 	{
-		if (!IsValid(otherComponent) || otherComponent->GetOwner() == collisionComponent->GetOwner())
+		if (!IsValid(otherComponent))
+		{
+			foundInvalid = true;
+			continue;
+		}
+
+		// Don't collide with self.
+		if (otherComponent->GetOwner() == collisionComponent->GetOwner())
 		{
 			continue;
 		}
@@ -79,5 +91,10 @@ void CollisionSystem::CheckAgainstLayer(CollisionComponent* collisionComponent, 
 	for (CollisionComponent* otherComponent : hitComponents)
 	{
 		eventCollisionHandler.Execute(otherComponent->GetOwner(), otherComponent);
+	}
+
+	if (foundInvalid)
+	{
+		RemoveInvalidComponentsFromLayer(layer);
 	}
 }
