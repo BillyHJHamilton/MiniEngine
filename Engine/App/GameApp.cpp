@@ -8,9 +8,6 @@ GameApp* GameApp::s_Instance = nullptr;
 
 GameApp::~GameApp()
 {
-#if DEBUG_MEMORY
-	DestroyCheckMemory();
-#endif
 }
 
 GameApp& GameApp::Get()
@@ -132,22 +129,22 @@ void GameApp::AppDraw()
 	m_MainWindow.display();
 }
 
-#if UNIT_TESTS
 void GameApp::StartupEngineTests()
 {
+#if UNIT_TESTS
 	TestReferences();
 	TestEvents();
 	NameHash::UnitTest();
 	GameObject::UnitTest();
-}
 #endif
+}
 
-#if DEBUG_MEMORY
-void GameApp::DestroyCheckMemory()
+AppTestWrapper::~AppTestWrapper()
 {
+#if DEBUG_MEMORY
 	GameObject::CheckMemoryReleased();
 	GameSystem::CheckMemoryReleased();
 	Component::CheckMemoryReleased();
 	RefControlBlock::CheckMemoryReleased();
-}
 #endif
+}

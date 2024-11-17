@@ -115,14 +115,26 @@ public:
 	}
 	bool operator!=(const WeakRef& other)
 	{
-		return (IsValid() && (m_Ptr == other.m_Ptr))
-			|| (!IsValid() && !other.IsValid());
+		return !operator==(other);
 	}
 
 	bool operator==(const T* other) const
 	{
 		return (IsValid() || m_Ptr == nullptr)
 			&& (m_Ptr == other);
+	}
+	bool operator!=(const T* other) const
+	{
+		return !operator==(other);
+	}
+
+	bool operator==(std::nullptr_t null)
+	{
+		return !IsValid();
+	}
+	bool operator!=(std::nullptr_t null)
+	{
+		return !operator==(null);
 	}
 
 	const T& operator*() const { return *Get(); }

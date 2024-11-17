@@ -6,7 +6,8 @@
 class Component : public ITypeInfoProvider
 {
 public:
-	virtual ~Component() {};
+	Component();
+	virtual ~Component();
 	MACRO_DeclareTypeInfo(Component)
 
 	virtual void OnAddedToObject(GameObject* newOwner) {};

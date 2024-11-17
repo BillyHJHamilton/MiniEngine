@@ -31,5 +31,5 @@ private:
 	void OutsideWrap(const sf::FloatRect& worldBox, const sf::FloatRect& objectBox);
 
 	WeakRef<const SpriteComponent> m_ReferenceSprite;
-	Response m_Response;
+	Response m_Response = Response::None;
 };

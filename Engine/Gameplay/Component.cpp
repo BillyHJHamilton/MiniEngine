@@ -4,6 +4,20 @@
 
 TypeInfo const Component::s_TypeInfo = TypeInfo("Component", {});
 
+Component::Component()
+{
+	#if DEBUG_MEMORY
+		++s_NumCreated;
+	#endif
+}
+
+Component::~Component()
+{
+	#if DEBUG_MEMORY
+		++s_NumDestroyed;
+	#endif
+}
+
 #if DEBUG_MEMORY
 int Component::s_NumCreated = 0;
 int Component::s_NumDestroyed = 0;

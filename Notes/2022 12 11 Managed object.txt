@@ -1,0 +1,8 @@
+We could create a BaseObject type to use as a base for gameobjects and components and other things.
+
+BaseObject should
+ - have type traits
+  - potentially provide a default factory method
+ - have a reference tracker
+  - easily convert to / provide a weakref to itself (to its derived type)
+  - via template

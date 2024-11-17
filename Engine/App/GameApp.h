@@ -8,7 +8,14 @@
 
 class World;
 
-class GameApp
+// Used to run memory tests after GameApp destructor.
+class AppTestWrapper
+{
+public:
+	virtual ~AppTestWrapper();
+};
+
+class GameApp : public AppTestWrapper
 {
 public:
 	virtual ~GameApp();
@@ -53,10 +60,6 @@ protected:
 private:
 #if UNIT_TESTS
 	void StartupEngineTests();
-#endif
-
-#if DEBUG_MEMORY
-	void DestroyCheckMemory();
 #endif
 
 	static GameApp* s_Instance;
